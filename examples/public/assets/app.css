@@ -1,0 +1,1965 @@
+:root {
+	-ms-overflow-style: -ms-autohiding-scrollbar; /* IE11+ */
+	overflow-y: scroll; /* All browsers without overlaying scrollbars */
+	-webkit-text-size-adjust: 100%;
+	    -ms-text-size-adjust: 100%;
+	        text-size-adjust: 100%; /* iOS 8+ */
+}
+
+body {
+	margin: 0;
+}
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+	display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+	display: inline-block; /* 1 */
+	vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+	display: none;
+}
+
+[unselectable] {
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none; /* Android 4.4+, Chrome 40+, Firefox 36+, iOS 8+, Safari 8+ */
+}
+
+
+/**
+ * Links
+ */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+	background-color: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+	outline: 0;
+}
+
+
+/**
+ * Text-level semantics
+ */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+	font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+	font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+	background: #ff0;
+	color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+	font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+
+/**
+ * Embedded content
+ */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+	border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+	overflow: hidden;
+}
+
+/* Grouping content */
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+	margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+pre {
+	overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+
+/**
+ * Forms
+ */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+	color: inherit; /* 1 */
+	font: inherit; /* 2 */
+	margin: 0; /* 3 */
+	overflow: auto; /* Internet Explorer 11+ */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+	overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+	text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance: button; /* 2 */
+	cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+	cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+	line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+	box-sizing: border-box; /* 1 */
+	padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	width: auto; /* Firefox 36+ */
+	height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+	-webkit-appearance: textfield; /* 1 */
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box; /* 2 */
+	box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+	border: 1px solid #c0c0c0;
+	margin: 0 2px;
+	padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+	border: 0; /* 1 */
+	padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+textarea {
+	overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+	font-weight: bold;
+}
+
+
+/**
+ * Tables
+ */
+
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td,
+th {
+	padding: 0;
+}
+
+
+/**
+ * Universal inheritance
+ */
+*,
+::before,
+::after {
+	box-sizing: inherit;
+}
+
+* {
+	font-size: inherit;
+	line-height: inherit;
+}
+
+::before,
+::after {
+	text-decoration: inherit;
+	vertical-align: inherit;
+}
+
+/**
+ * specify solid border style of all elements
+ */
+*,
+::before,
+::after {
+	border-style: solid;
+	border-width: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+	vertical-align: top;
+}
+
+button,
+input,
+select,
+textarea {
+	color: inherit;
+	font-family: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace;
+}
+
+
+select {
+	-moz-appearance: none; /* Firefox 36+ */
+	-webkit-appearance: none; /* Chrome 41+ */
+}
+
+select::-ms-expand {
+	display: none; /* Internet Explorer 11+ */
+}
+
+select::-ms-value {
+	color: currentColor; /* Internet Explorer 11+ */
+}
+
+
+/* hide content from screens but not screenreaders */
+@media screen {
+	[hidden~="screen"] {
+		display: inherit;
+	}
+
+	[hidden~="screen"]:not(:active):not(:focus):not(:target) {
+		clip: rect(0 0 0 0) !important;
+		position: absolute !important;
+	}
+}
+
+a {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+/**
+ * Page
+ */
+html {
+	overflow-y: scroll;
+}
+
+body {
+	box-sizing: border-box;
+	position: relative;
+	z-index: 0;
+	width: 100%;
+	min-height: 100%;
+		
+	padding: 0 1.4rem;
+	margin: 0;
+}
+
+
+/**
+ * Text
+ */
+html {
+	color: #282623;
+	background-color: #fff;
+	font-size: 20px;
+	font-family: 'Brandon Text', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', 'Lucida Sans', sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'onum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'onum', 'pnum';
+}
+
+body {
+	font-size: 1rem;
+	line-height: 1.4rem;
+}
+
+p {
+	margin: 0;
+
+	-webkit-hyphens: auto;
+
+	   -moz-hyphens: auto;
+
+	    -ms-hyphens: auto;
+
+	        hyphens: auto;
+	hyphenate-limit-lines: 3;
+	hyphenate-limit-chars: 4 2 2;
+	hyphenate-limit-zone: 2em;
+}
+
+::-moz-selection {
+	color: #fff;
+	background: #185a7d;
+	text-shadow: none;
+}
+
+::selection {
+	color: #fff;
+	background: #185a7d;
+	text-shadow: none;
+}
+
+code {
+	font-family: Consolas, monospace;
+	font-size: 0.8rem;
+}
+
+hr {
+	position: relative;
+	margin: 2.8rem 0;
+	width: auto;
+	height: 1.4rem;
+	padding: 0;
+}
+
+hr:before {
+	content: '\25CA';
+	position: absolute;
+	width: 1.4rem;
+	height: 1.4rem;
+	margin-left: -0.7rem;
+	left: 50%;
+	top: 0;
+	color: #ffb81d;
+	font-weight: 600;
+	text-align: center;
+}
+
+
+/**
+ * Headings
+ */
+h1 {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: #282623;
+	font-family: 'Brandon Grotesque', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', Arial, sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	-webkit-hyphens: none;
+	   -moz-hyphens: none;
+	    -ms-hyphens: none;
+	        hyphens: none;
+}
+h2 {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: #282623;
+	font-family: 'Brandon Grotesque', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', Arial, sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	-webkit-hyphens: none;
+	   -moz-hyphens: none;
+	    -ms-hyphens: none;
+	        hyphens: none;
+}
+h3 {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: #282623;
+	font-family: 'Brandon Grotesque', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', Arial, sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	-webkit-hyphens: none;
+	   -moz-hyphens: none;
+	    -ms-hyphens: none;
+	        hyphens: none;
+}
+h4 {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: #282623;
+	font-family: 'Brandon Grotesque', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', Arial, sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	-webkit-hyphens: none;
+	   -moz-hyphens: none;
+	    -ms-hyphens: none;
+	        hyphens: none;
+}
+h5 {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: #282623;
+	font-family: 'Brandon Grotesque', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', Arial, sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	-webkit-hyphens: none;
+	   -moz-hyphens: none;
+	    -ms-hyphens: none;
+	        hyphens: none;
+}
+h6 {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: #282623;
+	font-family: 'Brandon Grotesque', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', Arial, sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	-webkit-hyphens: none;
+	   -moz-hyphens: none;
+	    -ms-hyphens: none;
+	        hyphens: none;
+}
+.ash__storyTitleHeading {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: #282623;
+	font-family: 'Brandon Grotesque', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', Arial, sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	-webkit-hyphens: none;
+	   -moz-hyphens: none;
+	    -ms-hyphens: none;
+	        hyphens: none;
+}
+.ash__storyLevel1Heading {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: #282623;
+	font-family: 'Brandon Grotesque', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', Arial, sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	-webkit-hyphens: none;
+	   -moz-hyphens: none;
+	    -ms-hyphens: none;
+	        hyphens: none;
+}
+.ash__storyLevel2Heading {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: #282623;
+	font-family: 'Brandon Grotesque', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', Arial, sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	-webkit-hyphens: none;
+	   -moz-hyphens: none;
+	    -ms-hyphens: none;
+	        hyphens: none;
+}
+.ash__storyLevel3Heading {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: #282623;
+	font-family: 'Brandon Grotesque', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', Arial, sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	-webkit-hyphens: none;
+	   -moz-hyphens: none;
+	    -ms-hyphens: none;
+	        hyphens: none;
+}
+.ash__storyLevel4Heading {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: #282623;
+	font-family: 'Brandon Grotesque', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', Arial, sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	-webkit-hyphens: none;
+	   -moz-hyphens: none;
+	    -ms-hyphens: none;
+	        hyphens: none;
+}
+.ash__sectionTitleHeading {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: #282623;
+	font-family: 'Brandon Grotesque', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', Arial, sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	-webkit-hyphens: none;
+	   -moz-hyphens: none;
+	    -ms-hyphens: none;
+	        hyphens: none;
+}
+.ash__sectionLevel1Heading {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: #282623;
+	font-family: 'Brandon Grotesque', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', Arial, sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	-webkit-hyphens: none;
+	   -moz-hyphens: none;
+	    -ms-hyphens: none;
+	        hyphens: none;
+}
+.ash__sectionLevel2Heading {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: #282623;
+	font-family: 'Brandon Grotesque', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', Arial, sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	-webkit-hyphens: none;
+	   -moz-hyphens: none;
+	    -ms-hyphens: none;
+	        hyphens: none;
+}
+.ash__sectionLevel3Heading {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: #282623;
+	font-family: 'Brandon Grotesque', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', Arial, sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	-webkit-hyphens: none;
+	   -moz-hyphens: none;
+	    -ms-hyphens: none;
+	        hyphens: none;
+}
+.ash__sectionLevel4Heading {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	color: #282623;
+	font-family: 'Brandon Grotesque', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', Arial, sans-serif;
+	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
+	-webkit-hyphens: none;
+	   -moz-hyphens: none;
+	    -ms-hyphens: none;
+	        hyphens: none;
+}
+
+.ash__storyTitleHeading {
+	margin: 0 0 2.8rem;
+	padding-top: 0;
+	
+	font-size: 3.6rem;
+	line-height: 4.2rem;
+	font-weight: 700;
+	text-align: center;
+}
+
+.ash__storyTitleHeading:before {
+	content: none;
+}
+
+.ash__storyTitleHeading b {
+	display: block;
+	margin-top: 1.4rem;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+}
+
+.ash__storyTitleHeading .ash__author {
+	display: block;
+	margin-top: 0.7rem;
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+.ash__storyLevel1Heading {
+	margin: 5.6rem 0 2.8rem;
+	padding-top: 2.8rem;
+	
+	font-size: 2.4rem;
+	line-height: 2.8rem;
+	font-weight: 700;
+	text-align: center;
+}
+
+.ash__storyLevel1Heading:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	height: 0;
+	margin-left: -2.8rem;
+	width: 5.6rem;
+	border-bottom: 2px solid #ffb81d;
+}
+
+.ash__storyLevel1Heading b {
+	display: block;
+	margin-top: 0.7rem;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+}
+
+.ash__storyLevel2Heading {
+	margin: 2.8rem 0 0.7rem;
+	padding: 0;
+	
+	font-size: 1.6rem;
+	line-height: 2.1rem;
+	font-weight: 700;
+	text-align: left;
+}
+
+.ash__storyLevel2Heading:before {
+	content: none;
+}
+
+.ash__storyLevel3Heading {
+	margin: 2.8rem 0 0.7rem;
+	padding: 0;
+	
+	font-size: 1rem;
+	line-height: 1.4rem;
+	font-weight: 700;
+	text-align: left;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.ash__storyLevel3Heading:before {
+	content: none;
+}
+
+.ash__storyLevel4Heading {
+	margin: 2.8rem 0 0.7rem;
+	padding: 0;
+	
+	font-size: 0.9rem;
+	line-height: 1.4rem;
+	font-weight: 700;
+	text-align: left;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.ash__storyLevel4Heading:before {
+	content: none;
+}
+
+.ash__sectionTitleHeading {
+	margin: 2.8rem 0;
+	padding: 0;
+	
+	font-size: 2.4rem;
+	line-height: 2.8rem;
+	font-weight: 700;
+	text-align: center;
+}
+
+.ash__sectionTitleHeading:before {
+	content: none;
+}
+
+.ash__sectionTitleHeading b {
+	display: block;
+	margin-top: 0.7rem;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+}
+
+.ash__sectionLevel1Heading {
+	margin: 2.8rem 0 0.7rem;
+	padding: 1.4rem 0 0;
+	
+	font-size: 1rem;
+	line-height: 1.4rem;
+	font-weight: 700;
+	text-align: left;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.ash__sectionLevel1Heading:first-child {
+	margin-top: 0;
+}
+
+.ash__sectionLevel1Heading:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 0;
+	margin-left: 0;
+	width: 5.6rem;
+	border-bottom: 2px solid #ffb81d;
+}
+
+.ash__sectionLevel2Heading {
+	margin: 1.4rem 0 0.7rem;
+	padding: 0;
+	
+	font-size: 0.9rem;
+	line-height: 1.4rem;
+	font-weight: 700;
+	text-align: left;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.ash__sectionLevel2Heading:first-child {
+	margin-top: 0;
+}
+
+.ash__sectionLevel2Heading:before {
+	content: none;
+}
+
+.ash__sectionLevel3Heading {
+	margin: 1.4rem 0 0.7rem;
+	padding: 0;
+	
+	font-size: 0.8rem;
+	line-height: 1.4rem;
+	font-weight: 700;
+	text-align: left;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.ash__sectionLevel3Heading:first-child {
+	margin-top: 0;
+}
+
+.ash__sectionLevel3Heading:before {
+	content: none;
+}
+
+.ash__sectionLevel4Heading {
+	margin: 1.4rem 0 0.7rem;
+	padding: 0;
+	
+	font-size: 0.7rem;
+	line-height: 1.4rem;
+	font-weight: 700;
+	text-align: left;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.ash__sectionLevel4Heading:first-child {
+	margin-top: 0;
+}
+
+.ash__sectionLevel4Heading:before {
+	content: none;
+}
+
+
+/**
+ * Links
+ */
+a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, #60d1e0 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, #60d1e0 50%);
+	background-position: 0 1.1em;
+	background-repeat: repeat-x;
+	background-size: 0.2rem 0.2rem;
+	
+		
+	text-decoration: none;
+	font-weight: 600;
+}
+a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, #60d1e0 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, #60d1e0 50%);
+	background-size: 0.2rem 0.2rem;
+}
+a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, #60d1e0 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, #60d1e0 50%);
+	outline: 0 none;
+	background-size: 0.2rem 0.2rem;
+}
+a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, #60d1e0 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, #60d1e0 50%);
+	background-size: 0.2rem 0.2rem;
+}
+a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, #60d1e0 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, #60d1e0 50%);
+	background-size: 0.2rem 0.2rem;
+}
+
+h1 a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-position: 0 1.2em;
+	background-repeat: repeat-x;
+	background-size: 0 0;
+	font-weight: inherit;
+}
+
+h2 a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-position: 0 1.2em;
+	background-repeat: repeat-x;
+	background-size: 0 0;
+	font-weight: inherit;
+}
+
+h3 a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-position: 0 1.2em;
+	background-repeat: repeat-x;
+	background-size: 0 0;
+	font-weight: inherit;
+}
+
+h4 a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-position: 0 1.2em;
+	background-repeat: repeat-x;
+	background-size: 0 0;
+	font-weight: inherit;
+}
+
+h5 a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-position: 0 1.2em;
+	background-repeat: repeat-x;
+	background-size: 0 0;
+	font-weight: inherit;
+}
+
+h6 a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-position: 0 1.2em;
+	background-repeat: repeat-x;
+	background-size: 0 0;
+	font-weight: inherit;
+}
+
+.ash__storyTitleHeading a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-position: 0 1.2em;
+	background-repeat: repeat-x;
+	background-size: 0 0;
+	font-weight: inherit;
+}
+
+.ash__storyLevel1Heading a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-position: 0 1.2em;
+	background-repeat: repeat-x;
+	background-size: 0 0;
+	font-weight: inherit;
+}
+
+.ash__storyLevel2Heading a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-position: 0 1.2em;
+	background-repeat: repeat-x;
+	background-size: 0 0;
+	font-weight: inherit;
+}
+
+.ash__storyLevel3Heading a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-position: 0 1.2em;
+	background-repeat: repeat-x;
+	background-size: 0 0;
+	font-weight: inherit;
+}
+
+.ash__storyLevel4Heading a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-position: 0 1.2em;
+	background-repeat: repeat-x;
+	background-size: 0 0;
+	font-weight: inherit;
+}
+
+.ash__sectionTitleHeading a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-position: 0 1.2em;
+	background-repeat: repeat-x;
+	background-size: 0 0;
+	font-weight: inherit;
+}
+
+.ash__sectionLevel1Heading a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-position: 0 1.2em;
+	background-repeat: repeat-x;
+	background-size: 0 0;
+	font-weight: inherit;
+}
+
+.ash__sectionLevel2Heading a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-position: 0 1.2em;
+	background-repeat: repeat-x;
+	background-size: 0 0;
+	font-weight: inherit;
+}
+
+.ash__sectionLevel3Heading a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-position: 0 1.2em;
+	background-repeat: repeat-x;
+	background-size: 0 0;
+	font-weight: inherit;
+}
+
+.ash__sectionLevel4Heading a {
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-position: 0 1.2em;
+	background-repeat: repeat-x;
+	background-size: 0 0;
+	font-weight: inherit;
+}
+
+h1 a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h2 a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h3 a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h4 a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h5 a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h6 a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__storyTitleHeading a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__storyLevel1Heading a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__storyLevel2Heading a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__storyLevel3Heading a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__storyLevel4Heading a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__sectionTitleHeading a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__sectionLevel1Heading a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__sectionLevel2Heading a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__sectionLevel3Heading a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__sectionLevel4Heading a:visited {
+	color: #282623;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h1 a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+	outline: 0 none;
+}
+
+h2 a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+	outline: 0 none;
+}
+
+h3 a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+	outline: 0 none;
+}
+
+h4 a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+	outline: 0 none;
+}
+
+h5 a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+	outline: 0 none;
+}
+
+h6 a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+	outline: 0 none;
+}
+
+.ash__storyTitleHeading a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+	outline: 0 none;
+}
+
+.ash__storyLevel1Heading a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+	outline: 0 none;
+}
+
+.ash__storyLevel2Heading a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+	outline: 0 none;
+}
+
+.ash__storyLevel3Heading a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+	outline: 0 none;
+}
+
+.ash__storyLevel4Heading a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+	outline: 0 none;
+}
+
+.ash__sectionTitleHeading a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+	outline: 0 none;
+}
+
+.ash__sectionLevel1Heading a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+	outline: 0 none;
+}
+
+.ash__sectionLevel2Heading a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+	outline: 0 none;
+}
+
+.ash__sectionLevel3Heading a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+	outline: 0 none;
+}
+
+.ash__sectionLevel4Heading a:focus {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+	outline: 0 none;
+}
+
+h1 a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h1 a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h2 a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h2 a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h3 a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h3 a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h4 a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h4 a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h5 a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h5 a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h6 a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+h6 a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__storyTitleHeading a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__storyTitleHeading a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__storyLevel1Heading a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__storyLevel1Heading a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__storyLevel2Heading a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__storyLevel2Heading a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__storyLevel3Heading a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__storyLevel3Heading a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__storyLevel4Heading a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__storyLevel4Heading a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__sectionTitleHeading a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__sectionTitleHeading a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__sectionLevel1Heading a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__sectionLevel1Heading a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__sectionLevel2Heading a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__sectionLevel2Heading a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__sectionLevel3Heading a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__sectionLevel3Heading a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__sectionLevel4Heading a:hover {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+.ash__sectionLevel4Heading a:active {
+	color: #60d1e0;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, transparent 50%);
+	background-size: 0 0;
+}
+
+
+/**
+ * Lists
+ */
+ul {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+ol {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+.ash__list, .ash__orderedList {
+	margin: 0.7rem 1.4rem;
+	padding: 0;
+
+	list-style: none;
+	counter-reset: list;
+}
+
+.ash__list li, .ash__orderedList li {
+	position: relative;
+}
+
+.ash__list li:before {
+	content: '\25CA';
+	position: absolute;
+	right: 100%;
+	top: 0;
+	width: 1.4rem;
+	height: 1.4rem;
+	color: #ffb81d;
+	font-weight: 600;
+	text-align: center;
+	counter-increment: list;
+}
+
+.ash__orderedList li:before {
+	content: '\25CA';
+	position: absolute;
+	right: 100%;
+	top: 0;
+	width: 1.4rem;
+	height: 1.4rem;
+	color: #ffb81d;
+	font-weight: 600;
+	text-align: center;
+	counter-increment: list;
+}
+
+.ash__list li ul, .ash__list li ol, .ash__orderedList li ul, .ash__orderedList li ol {
+	margin-left: b(0);
+	counter-reset: list;
+}
+
+.ash__list li ul li:before, .ash__list li ol li:before, .ash__orderedList li ul li:before, .ash__orderedList li ol li:before {
+	content: '\2022';
+}
+
+.ash__orderedList li:before {
+	content: counters(list, ".") " ";
+	width: auto;
+	top: 0.05rem;
+	padding-right: 0.5em;
+	color: inherit;
+	font-size: 0.8rem;
+	font-weight: 600;
+	text-align: left;
+	-webkit-font-feature-settings: 'tnum';
+	        font-feature-settings: 'tnum';
+}
+
+.ash__orderedList li ul, .ash__orderedList li ol {
+	margin: 0.7rem 0 0.7rem 0.7em;
+}
+
+.ash__orderedList li ul li:before, .ash__orderedList li ol li:before {
+	content: counters(list, '.') ' ';
+}
+
+
+/**
+ * Grid
+ */
+body.hasGrid:after {
+	content: '';
+	position: absolute;
+	left: 1.4rem;
+	top: 0;
+	bottom: 0;
+	right: 1.4rem;
+	z-index: 10;
+	pointer-events: none;
+	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.2) 46.4286%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 96.4286%, rgba(0, 0, 0, 0.1) 100%) 0 0 / 100% 1.4rem repeat, -webkit-linear-gradient(left,
+			rgba(0, 0, 0, 0.15) 0%,
+			rgba(0, 0, 0, 0.15) calc(0% + 1.4rem),
+			rgba(0, 0, 0, 0.0) calc(0% + 1.40014rem),
+			rgba(0, 0, 0, 0.0) calc(49.9999% - 1.40014rem),
+			rgba(0, 0, 0, 0.15) calc(49.9999% - 1.4rem),
+			rgba(0, 0, 0, 0.15) 49.9999%,
+			rgba(0, 0, 0, 0.1) 50%,
+			rgba(0, 0, 0, 0.1) calc(50% + 1.4rem),
+			rgba(0, 0, 0, 0.0) calc(50% + 1.40014rem),
+			rgba(0, 0, 0, 0.0) calc(100% - 1.40014rem),
+			rgba(0, 0, 0, 0.1) calc(100% - 1.4rem),
+			rgba(0, 0, 0, 0.1) 100%) 0 0 / 16.66666667% 100% repeat;
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.2) 46.4286%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 96.4286%, rgba(0, 0, 0, 0.1) 100%) 0 0 / 100% 1.4rem repeat, linear-gradient(to right,
+			rgba(0, 0, 0, 0.15) 0%,
+			rgba(0, 0, 0, 0.15) calc(0% + 1.4rem),
+			rgba(0, 0, 0, 0.0) calc(0% + 1.40014rem),
+			rgba(0, 0, 0, 0.0) calc(49.9999% - 1.40014rem),
+			rgba(0, 0, 0, 0.15) calc(49.9999% - 1.4rem),
+			rgba(0, 0, 0, 0.15) 49.9999%,
+			rgba(0, 0, 0, 0.1) 50%,
+			rgba(0, 0, 0, 0.1) calc(50% + 1.4rem),
+			rgba(0, 0, 0, 0.0) calc(50% + 1.40014rem),
+			rgba(0, 0, 0, 0.0) calc(100% - 1.40014rem),
+			rgba(0, 0, 0, 0.1) calc(100% - 1.4rem),
+			rgba(0, 0, 0, 0.1) 100%) 0 0 / 16.66666667% 100% repeat;
+}
+@media screen and (min-width: 1px) and (max-width: 800px) {
+
+	body.hasGrid:after {
+		background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.2) 46.4286%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 96.4286%, rgba(0, 0, 0, 0.1) 100%) 0 0 / 100% 1.4rem repeat, -webkit-linear-gradient(left,
+			rgba(0, 0, 0, 0.15) 0%,
+			rgba(0, 0, 0, 0.15) calc(0% + 1.4rem),
+			rgba(0, 0, 0, 0.0) calc(0% + 1.40014rem),
+			rgba(0, 0, 0, 0.0) calc(49.9999% - 1.40014rem),
+			rgba(0, 0, 0, 0.15) calc(49.9999% - 1.4rem),
+			rgba(0, 0, 0, 0.15) 49.9999%,
+			rgba(0, 0, 0, 0.1) 50%,
+			rgba(0, 0, 0, 0.1) calc(50% + 1.4rem),
+			rgba(0, 0, 0, 0.0) calc(50% + 1.40014rem),
+			rgba(0, 0, 0, 0.0) calc(100% - 1.40014rem),
+			rgba(0, 0, 0, 0.1) calc(100% - 1.4rem),
+			rgba(0, 0, 0, 0.1) 100%) 0 0 / 33.33333333% 100% repeat;
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.2) 46.4286%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 96.4286%, rgba(0, 0, 0, 0.1) 100%) 0 0 / 100% 1.4rem repeat, linear-gradient(to right,
+			rgba(0, 0, 0, 0.15) 0%,
+			rgba(0, 0, 0, 0.15) calc(0% + 1.4rem),
+			rgba(0, 0, 0, 0.0) calc(0% + 1.40014rem),
+			rgba(0, 0, 0, 0.0) calc(49.9999% - 1.40014rem),
+			rgba(0, 0, 0, 0.15) calc(49.9999% - 1.4rem),
+			rgba(0, 0, 0, 0.15) 49.9999%,
+			rgba(0, 0, 0, 0.1) 50%,
+			rgba(0, 0, 0, 0.1) calc(50% + 1.4rem),
+			rgba(0, 0, 0, 0.0) calc(50% + 1.40014rem),
+			rgba(0, 0, 0, 0.0) calc(100% - 1.40014rem),
+			rgba(0, 0, 0, 0.1) calc(100% - 1.4rem),
+			rgba(0, 0, 0, 0.1) 100%) 0 0 / 33.33333333% 100% repeat;
+	}
+}
+.App__root {
+	padding: 2.8rem 1.4rem;
+}
+
+.App__root p {
+	margin-top: 0.7rem;
+}
+
+.App__root p:first-child {
+	margin-top: 0;
+}
+
+.App__root p a {
+	margin-left: 0.7rem;
+}
+
+.App__root p a:first-child {
+	margin-left: 0;
+}
+
+.App__items {
+	margin-top: 1.4rem;
+}

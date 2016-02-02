@@ -1,0 +1,24 @@
+{
+	"plugins": [
+		"syntax-trailing-function-commas",
+		"transform-async-to-generator",
+		"transform-class-constructor-call",
+		"transform-class-properties",
+		"transform-do-expressions",
+		"transform-exponentiation-operator",
+		"transform-function-bind",
+		"transform-object-rest-spread",
+
+		"transform-es2015-classes",
+		"transform-es2015-destructuring",
+		"transform-es2015-parameters",
+		"transform-es2015-modules-commonjs",
+		"transform-es2015-function-name",
+
+		"syntax-flow",
+		"syntax-jsx",
+		"transform-flow-strip-types",
+		["transform-react-jsx", {"pragma": "ash.createElement"}]
+	]
+}
+

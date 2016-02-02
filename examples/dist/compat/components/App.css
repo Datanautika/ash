@@ -1,0 +1,23 @@
+.root {
+	padding: 2bh 1bh;
+
+	p {
+		margin-top: 0.5bh;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		a {
+			margin-left: 0.5bh;
+
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+.items {
+	margin-top: 1bh;
+}

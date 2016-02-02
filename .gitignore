@@ -105,3 +105,12 @@ sftp-config.json
 *.ttf
 *.woff
 *.woff2
+
+
+# Project files
+
+$/*
+
+## custom/modified node modules
+!node_modules/postcss-pxtorem
+!node_modules/postcss-vertical-rhythm
