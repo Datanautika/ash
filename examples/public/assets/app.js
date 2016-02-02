@@ -1146,7 +1146,7 @@
 		}, {
 			key: 'domNode',
 			get: function get() {
-				if (this.isMounted && (0, _isAshNodeAshElement2.default)(this.__element.children[0]) && this.__element.stream.__listeners[0]) {
+				if (this.isMounted && (0, _isAshNodeAshElement2.default)(this.__element.children[0]) && this.__element.stream.__listeners[0] && this.__element.stream.__listeners[0].getRootNode) {
 					var rootNode = this.__element.stream.__listeners[0].getRootNode();
 
 					if (rootNode) {
