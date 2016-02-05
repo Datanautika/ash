@@ -1,8 +1,11 @@
+/* eslint-disable no-magic-numbers */
+
 import '../examples/dist/compat/internals/cssModules';
 
 import ash from '../examples/node_modules/ash';
 
 import TestApp1 from '../examples/dist/compat/components/TestApp1';
+import createAshNodeTree from '../examples/node_modules/ash/core/view/createAshNodeTree';
 
 
 function assertAshNodeTree(expected, actual) {
@@ -35,46 +38,52 @@ function assertAshNodeTree(expected, actual) {
 }
 
 describe('ash', () => {
-	it('renders simple component', () => {
+	it('renders simple component', (done) => {
 		let viewStream = new ash.ViewStream(<TestApp1 />);
-		let ashNodeTree = viewStream.get().ashNodeTree;
 
-		assertAshNodeTree(ashNodeTree, {
-			id: '0',
-			tagName: 'main',
-			key: null,
-			properties: {},
-			children: [{
-				id: '0.0',
-				text: 'render 0'
-			}]
-		});
+		setTimeout(() => {
+			let ashNodeTree = createAshNodeTree(viewStream.get());
+
+			assertAshNodeTree(ashNodeTree, {
+				id: '0',
+				tagName: 'main',
+				key: null,
+				properties: {},
+				children: [{
+					id: '0.0',
+					text: 'render 0'
+				}]
+			});
+
+			done();
+		}, 20);
 	});
 
 	it('rerenders simple component', (done) => {
 		let updateStream = new ash.Stream();
 		let viewStream = new ash.ViewStream(<TestApp1 updateStream={updateStream} />);
 
-		// ash.renderViewStream(viewStream);
+		setTimeout(() => {
+			TestApp1.doneStream.on((count) => {
+				let ashNodeTree = createAshNodeTree(viewStream.get());
 
-		TestApp1.doneStream.on((count) => {
-			let ashNodeTree = viewStream.get().ashNodeTree;
+				if (count >= 2) {
+					assertAshNodeTree(ashNodeTree, {
+						id: '0',
+						tagName: 'main',
+						key: null,
+						properties: {},
+						children: [{
+							id: '0.0',
+							text: 'render 1'
+						}]
+					});
 
-			if (count >= 2) {
-				assertAshNodeTree(ashNodeTree, {
-					id: '0',
-					tagName: 'main',
-					key: null,
-					properties: {},
-					children: [{
-						id: '0.0',
-						text: 'render 1'
-					}]
-				});
-				done();
-			}
-		});
+					done();
+				}
+			});
 
-		updateStream.push(true);
+			updateStream.push(true);
+		}, 20);
 	});
 });

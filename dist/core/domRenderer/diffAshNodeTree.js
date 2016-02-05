@@ -40,20 +40,28 @@ function walkDiffAshNodeChildren(oldChildren, newChildren, oldAshNode, newAshNod
 			isChildDirty = true;
 		}
 
-		while (oldChildren[oldChildIndex] && typeof oldChildren[oldChildIndex].key !== 'undefined' && oldChildren[oldChildIndex].key !== null) {
+		if (oldChildren[i] && oldChildren[i].key) {
+			oldChildren[i].computedKey = oldChildren[i].key;
+		}
+
+		if (newChildren[i] && newChildren[i].key) {
+			newChildren[i].computedKey = newChildren[i].key;
+		}
+
+		while (oldChildren[oldChildIndex] && oldChildren[oldChildIndex].key) {
 			oldChildIndex++;
 		}
 
-		while (newChildren[newChildIndex] && typeof newChildren[newChildIndex].key !== 'undefined' && newChildren[newChildIndex].key !== null) {
+		while (newChildren[newChildIndex] && newChildren[newChildIndex].key) {
 			newChildIndex++;
 		}
 
 		if (oldChildren[oldChildIndex]) {
-			oldChildren[oldChildIndex].key = key;
+			oldChildren[oldChildIndex].computedKey = key;
 		}
 
 		if (newChildren[newChildIndex]) {
-			newChildren[newChildIndex].key = key;
+			newChildren[newChildIndex].computedKey = key;
 		}
 
 		key++;
@@ -78,7 +86,7 @@ function walkDiffAshNodeChildren(oldChildren, newChildren, oldAshNode, newAshNod
 		var isChildFound = false;
 
 		for (var j = 0; j < newChildren.length; j++) {
-			if (oldChildren[i].key === newChildren[j].key) {
+			if (oldChildren[i].computedKey === newChildren[j].computedKey) {
 				isChildFound = true;
 				foundIndex = j;
 
@@ -118,7 +126,7 @@ function walkDiffAshNodeChildren(oldChildren, newChildren, oldAshNode, newAshNod
 		var isChildFound = false;
 
 		for (var j = 0; j < oldChildren.length; j++) {
-			if (oldChildren[j].key === newChildren[i].key) {
+			if (oldChildren[j].computedKey === newChildren[i].computedKey) {
 				isChildFound = true;
 
 				break;

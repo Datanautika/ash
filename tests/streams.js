@@ -1,3 +1,5 @@
+/* eslint-disable no-magic-numbers */
+
 import '../examples/dist/compat/internals/cssModules';
 
 import assert from 'assert';
@@ -34,9 +36,7 @@ describe('ash.Stream', () => {
 		let x = new ash.Stream(3);
 		let x2 = new ash.Stream();
 
-		x2.combine(x, () => {
-			return x.get() * 2;
-		});
+		x2.combine(x, () => x.get() * 2);
 
 		assert.equal(x2.get(), x.get() * 2);
 	});
@@ -310,7 +310,8 @@ describe('ash.Stream', () => {
 	it('let\'s explicit `undefined` flow down streams', () => {
 		let result = [];
 		let s1 = new ash.Stream(undefined);
-		let s2 = s1.map((value) => {
+		
+		s1.map((value) => {
 			result.push(value);
 		});
 
@@ -329,7 +330,7 @@ describe('ash.Stream', () => {
 		let s1 = new ash.Stream();
 		let s2 = new ash.Stream(null);
 		let s3 = new ash.Stream();
-		let f = () => {};
+		let f = () => undefined;
 
 		assert(ash.Stream.isStream(s1));
 		assert(ash.Stream.isStream(s2));
@@ -553,6 +554,48 @@ describe('ash.Stream', () => {
 		});
 	});
 
+	describe('on', () => {
+		it('is invoked when stream changes', () => {
+			let s = new ash.Stream();
+			let result = [];
+			let f = (value) => { result.push(value); };
+
+			ash.Stream.on(f, s);
+
+			s.push(1).push(2);
+			
+			assert.deepEqual(result, [1, 2]);
+		});
+	});
+
+	describe('subscribe', () => {
+		it('is invoked when stream changes', () => {
+			let s = new ash.Stream();
+			let result = [];
+			let f = (value) => { result.push(value); };
+
+			ash.Stream.subscribe(f, s);
+
+			s.push(1).push(2);
+			
+			assert.deepEqual(result, [1, 2]);
+		});
+
+		it('is not invoked on previsou values', () => {
+			let s = new ash.Stream();
+			let result = [];
+			let f = (value) => { result.push(value); };
+
+			s.push(1).push(2);
+
+			ash.Stream.subscribe(f, s);
+
+			s.push(3).push(4);
+			
+			assert.deepEqual(result, [3, 4]);
+		});
+	});
+
 	describe('map', () => {
 		it('maps a function', () => {
 			let x = new ash.Stream(3);
@@ -632,7 +675,7 @@ describe('ash.Stream', () => {
 			let s3 = new ash.Stream();
 
 			s3.combine(() => {
-				result.push(merged.get())
+				result.push(merged.get());
 			}, merged);
 
 			s1.push(12).push(2);
@@ -659,7 +702,8 @@ describe('ash.Stream', () => {
 			let s1 = new ash.Stream();
 			let s2 = new ash.Stream();
 			let s1and2 = ash.Stream.merge(s1, s2);
-			let s3 = s1and2.map((v) => {
+			
+			s1and2.map((v) => {
 				result.push(v);
 			});
 
@@ -792,7 +836,7 @@ describe('ash.Stream', () => {
 			let one = new ash.Stream();
 
 			ash.Stream.combine((dependencyOne, self) => {
-				self.push(ash.Stream.combine(() => {}));
+				self.push(ash.Stream.combine(() => undefined));
 			}, one);
 
 			one.push(1);
@@ -802,7 +846,7 @@ describe('ash.Stream', () => {
 			let one = new ash.Stream();
 
 			ash.Stream.combine((dependencyOne, self) => {
-				self.push(ash.Stream.combine(() => {}).immediate());
+				self.push(ash.Stream.combine(() => undefined).immediate());
 			}, one);
 
 			one.push(1);
@@ -816,9 +860,9 @@ describe('ash.Stream', () => {
 				result.push(x);
 			}, str);
 
-			ash.Stream.map((x) => {
+			ash.Stream.map(() => {
 				// create a stream, the first dependant on `str` should still be updated
-				ash.Stream.combine(() => {});
+				ash.Stream.combine(() => undefined);
 			}, str);
 
 			str.push(1);
@@ -987,7 +1031,7 @@ describe('ash.Stream', () => {
 			s2.combine(() => s1.get() + s1x2.get(), s1, s1x2);
 			s1x4.combine(() => s1.get() + s2.get(), s1, s2);
 
-			let res = s1x4.map((n) => {
+			s1x4.map((n) => {
 				result.push(n);
 			});
 

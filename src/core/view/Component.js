@@ -135,7 +135,7 @@ export default class Component {
 	 * Root DOM Node of Component intance.
 	 */
 	get domNode() {
-		if (this.isMounted && isAshNodeAshElement(this.__element.children[0]) && this.__element.stream.__listeners[0]) {
+		if (this.isMounted && isAshNodeAshElement(this.__element.children[0]) && this.__element.stream.__listeners[0] && this.__element.stream.__listeners[0].getRootNode) {
 			let rootNode = this.__element.stream.__listeners[0].getRootNode();
 
 			if (rootNode) {
