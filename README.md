@@ -85,7 +85,7 @@ ash.renderViewStream(viewStream, document.querySelector('.page'));
 
 ## License
 
-Copyright 2015 Datanautika s.r.o.
+Copyright 2016 Datanautika s.r.o.
 
 Streams based on [Flyd](https://github.com/paldepind/flyd/) by Simon Friis Vindum
 
