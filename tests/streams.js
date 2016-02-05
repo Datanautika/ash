@@ -568,6 +568,34 @@ describe('ash.Stream', () => {
 		});
 	});
 
+	describe('subscribe', () => {
+		it('is invoked when stream changes', () => {
+			let s = new ash.Stream();
+			let result = [];
+			let f = (value) => { result.push(value); };
+
+			ash.Stream.subscribe(f, s);
+
+			s.push(1).push(2);
+			
+			assert.deepEqual(result, [1, 2]);
+		});
+
+		it('is not invoked on previsou values', () => {
+			let s = new ash.Stream();
+			let result = [];
+			let f = (value) => { result.push(value); };
+
+			s.push(1).push(2);
+
+			ash.Stream.subscribe(f, s);
+
+			s.push(3).push(4);
+			
+			assert.deepEqual(result, [3, 4]);
+		});
+	});
+
 	describe('map', () => {
 		it('maps a function', () => {
 			let x = new ash.Stream(3);

@@ -386,7 +386,14 @@ export default class Stream {
 		return newStream;
 	}
 
-	/*static subscribe(fn, stream) {
+	/**
+	 * Similar to `on`, but the `fn` isn't called if `stream` already has value; only values pushed to `stream` after the `subscribe` was called are relevant.
+	 *
+	 * @param {Function} fn
+	 * @param {Stream} stream
+	 * @returns {Stream}
+	 */
+	static subscribe(fn, stream) {
 		let omitFirstRun = stream.hasValue;
 		let hasRun = false;
 		let newStream = new Stream();
@@ -400,7 +407,7 @@ export default class Stream {
 		}, stream);
 
 		return newStream;
-	}*/
+	}
 
 	/**
 	 * Creates new stream consisting of values returned by the function `fn` called with values from stream instance.
@@ -422,9 +429,15 @@ export default class Stream {
 		return Stream.on(fn, this);
 	}
 
-	/*subscribe(fn) {
+	/**
+	 * Similar to `on`, but the `fn` isn't called if `stream` already has value; only values pushed to `stream` after the `subscribe` was called are relevant.
+	 *
+	 * @param {Function} fn
+	 * @returns {Stream}
+	 */
+	subscribe(fn) {
 		return Stream.subscribe(fn, this);
-	}*/
+	}
 
 	/**
 	 * Immediately calls stream's body function, even if all dependencies don't have values yet.

@@ -393,22 +393,6 @@ var Stream = function () {
 	}, {
 		key: 'map',
 
-		/*static subscribe(fn, stream) {
-  	let omitFirstRun = stream.hasValue;
-  	let hasRun = false;
-  	let newStream = new Stream();
-  
-  	newStream.combine((dependency) => {
-  		if (hasRun || !omitFirstRun && !hasRun) {
-  			fn(dependency.value);
-  		}
-  
-  		hasRun = true;
-  	}, stream);
-  
-  	return newStream;
-  }*/
-
 		/**
    * Creates new stream consisting of values returned by the function `fn` called with values from stream instance.
    *
@@ -432,9 +416,18 @@ var Stream = function () {
 			return Stream.on(fn, this);
 		}
 
-		/*subscribe(fn) {
-  	return Stream.subscribe(fn, this);
-  }*/
+		/**
+   * Similar to `on`, but the `fn` isn't called if `stream` already has value; only values pushed to `stream` after the `subscribe` was called are relevant.
+   *
+   * @param {Function} fn
+   * @returns {Stream}
+   */
+
+	}, {
+		key: 'subscribe',
+		value: function subscribe(fn) {
+			return Stream.subscribe(fn, this);
+		}
 
 		/**
    * Immediately calls stream's body function, even if all dependencies don't have values yet.
@@ -523,6 +516,32 @@ var Stream = function () {
 
 			newStream.combine(function (streamDependency) {
 				fn(streamDependency.value);
+			}, stream);
+
+			return newStream;
+		}
+
+		/**
+   * Similar to `on`, but the `fn` isn't called if `stream` already has value; only values pushed to `stream` after the `subscribe` was called are relevant.
+   *
+   * @param {Function} fn
+   * @param {Stream} stream
+   * @returns {Stream}
+   */
+
+	}, {
+		key: 'subscribe',
+		value: function subscribe(fn, stream) {
+			var omitFirstRun = stream.hasValue;
+			var hasRun = false;
+			var newStream = new Stream();
+
+			newStream.combine(function (dependency) {
+				if (hasRun || !omitFirstRun && !hasRun) {
+					fn(dependency.value);
+				}
+
+				hasRun = true;
 			}, stream);
 
 			return newStream;
