@@ -29,6 +29,7 @@ const LIBRARY_CSS = 'library:css';
 const APP_LIBRARY = 'app:library';
 const WATCH = 'watch';
 const DEFAULT = 'default';
+const BUILD = 'build';
 
 let babelCompatConfig = JSON.parse(fs.readFileSync('.babelrc-compat', {encoding: 'utf8'}));
 let babelDistConfig = JSON.parse(fs.readFileSync('.babelrc-dist', {encoding: 'utf8'}));
@@ -113,12 +114,11 @@ gulp.task(WATCH, () => {
 	gulp.watch(['./src/**/*.css'], gulp.series(LIBRARY_CSS, APP_LIBRARY, APP_WEBPACK));
 });
 
-gulp.task(DEFAULT, gulp.series(
+gulp.task(BUILD, gulp.series(
 	gulp.parallel(LIBRARY_CLEANUP, APP_CLEANUP),
 	gulp.parallel(LIBRARY_CSS, APP_CSS),
 	LIBRARY_BABEL,
 	gulp.parallel(APP_BABEL_COMPAT,	APP_BABEL_NEXT),
 	APP_LIBRARY,
-	APP_WEBPACK,
-	WATCH
+	APP_WEBPACK
 ));
