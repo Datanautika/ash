@@ -114,6 +114,16 @@ gulp.task(WATCH, () => {
 	gulp.watch(['./src/**/*.css'], gulp.series(LIBRARY_CSS, APP_LIBRARY, APP_WEBPACK));
 });
 
+gulp.task(DEFAULT, gulp.series(
+	gulp.parallel(LIBRARY_CLEANUP, APP_CLEANUP),
+	gulp.parallel(LIBRARY_CSS, APP_CSS),
+	LIBRARY_BABEL,
+	gulp.parallel(APP_BABEL_COMPAT,	APP_BABEL_NEXT),
+	APP_LIBRARY,
+	APP_WEBPACK,
+	WATCH
+));
+
 gulp.task(BUILD, gulp.series(
 	gulp.parallel(LIBRARY_CLEANUP, APP_CLEANUP),
 	gulp.parallel(LIBRARY_CSS, APP_CSS),
