@@ -151,7 +151,7 @@ var Component = function () {
    * @returns {boolean}
    */
 		value: function shouldUpdate(newProps) {
-			return this.props !== newProps;
+			return this.props !== newProps || this.__element.isDirty;
 		}
 
 		/**

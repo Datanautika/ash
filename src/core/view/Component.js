@@ -154,7 +154,7 @@ export default class Component {
 	 * @returns {boolean}
 	 */
 	shouldUpdate(newProps) {
-		return this.props !== newProps;
+		return this.props !== newProps || this.__element.isDirty;
 	}
 
 	/**

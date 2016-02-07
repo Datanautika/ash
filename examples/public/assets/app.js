@@ -1039,7 +1039,7 @@
 	   * @returns {boolean}
 	   */
 			value: function shouldUpdate(newProps) {
-				return this.props !== newProps;
+				return this.props !== newProps || this.__element.isDirty;
 			}
 
 			/**
@@ -2678,7 +2678,7 @@
 		} else if (newAshElement.type === COMPONENT_ASH_ELEMENT && oldAshElement.type === COMPONENT_ASH_ELEMENT && newAshElement.Spec === oldAshElement.Spec) {
 			var newAshElementArgs = newAshElement.args && newAshElement.args[0] ? newAshElement.args[0] : null;
 
-			if (oldAshElement.isDirty || oldAshElement.instance.shouldUpdate(newAshElementArgs)) {
+			if (oldAshElement.instance.shouldUpdate(newAshElementArgs)) {
 				oldAshElement.args = newAshElement.args;
 				oldAshElement.isDirty = true;
 
