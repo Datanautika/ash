@@ -307,8 +307,8 @@ var Stream = function () {
 	}, {
 		key: 'push',
 		value: function push(value) {
-			if (value !== undefined && value !== null && (0, _isFunction2.default)(value.then) && (0, _isFunction2.default)(value.catch)) {
-				value.then(this.push).catch(this.push);
+			if (value !== undefined && value !== null && (0, _isFunction2.default)(value.then)) {
+				value.then(this.push).then(undefined, this.push);
 
 				return this;
 			}
