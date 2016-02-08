@@ -969,6 +969,7 @@
 			_classCallCheck(this, Component);
 
 			this.__element = null;
+			this.__isDirty = false;
 			this.__previousLifecycle = LIFECYCLE_UNINITIALIZED;
 			this.__currentLifecycle = LIFECYCLE_UNMOUNTED;
 			this.props = null;
@@ -1023,7 +1024,7 @@
 	   */
 			value: function update() {
 				if (this.__element.stream) {
-					this.__element.isDirty = true;
+					this.__isDirty = true;
 
 					this.__element.stream.push(true);
 				}
@@ -1039,7 +1040,7 @@
 	   * @returns {boolean}
 	   */
 			value: function shouldUpdate(newProps) {
-				return this.props !== newProps || this.__element.isDirty;
+				return this.props !== newProps;
 			}
 
 			/**
@@ -2678,9 +2679,10 @@
 		} else if (newAshElement.type === COMPONENT_ASH_ELEMENT && oldAshElement.type === COMPONENT_ASH_ELEMENT && newAshElement.Spec === oldAshElement.Spec) {
 			var newAshElementArgs = newAshElement.args && newAshElement.args[0] ? newAshElement.args[0] : null;
 
-			if (oldAshElement.instance.shouldUpdate(newAshElementArgs)) {
+			if (oldAshElement.instance.__isDirty || oldAshElement.instance.shouldUpdate(newAshElementArgs)) {
 				oldAshElement.args = newAshElement.args;
 				oldAshElement.isDirty = true;
+				oldAshElement.instance.__isDirty = false;
 
 				oldAshElement.instance.onBeforeReceiveProps(newAshElementArgs);
 
