@@ -1871,6 +1871,56 @@ ol {
 
 
 /**
+ * Tables
+ */
+
+.ash__table {
+}
+
+.ash__tableHead {
+}
+
+.ash__tableHead .ash__tableCell {
+	position: relative;
+	padding-top: 0;
+	padding-bottom: 1.4rem;
+
+	font-weight: 600;
+}
+
+.ash__tableHead .ash__tableCell::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0.525rem;
+	height: 0.1rem;
+	background-color: #ffb81d;
+}
+
+.ash__tableBody {
+}
+
+.ash__tableCell {
+	padding: 0.35rem;
+
+	font-weight: inherit;
+}
+
+.ash__tableCell:first-child {
+	padding-left: 0;
+}
+
+.ash__tableCell:last-child {
+	padding-right: 0;
+}
+
+.ash__tableCell > code {
+	line-height: 0;
+}
+
+
+/**
  * Grid
  */
 body.hasGrid:after {
