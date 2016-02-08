@@ -81,6 +81,7 @@ var Component = function () {
 		_classCallCheck(this, Component);
 
 		this.__element = null;
+		this.__isDirty = false;
 		this.__previousLifecycle = LIFECYCLE_UNINITIALIZED;
 		this.__currentLifecycle = LIFECYCLE_UNMOUNTED;
 		this.props = null;
@@ -135,7 +136,7 @@ var Component = function () {
    */
 		value: function update() {
 			if (this.__element.stream) {
-				this.__element.isDirty = true;
+				this.__isDirty = true;
 
 				this.__element.stream.push(true);
 			}

@@ -14,6 +14,8 @@
   "repository": "datanautika/ash",
   "main": "dist/index.js",
   "scripts": {
+    "build": "gulp build --production",
+    "watch": "gulp",
     "test": "mocha tests --compilers js:node_modules/babel-core/register",
     "start": "node-dev examples/dist/next/server.js",
     "debug": "iron-node examples/dist/next/server.js",

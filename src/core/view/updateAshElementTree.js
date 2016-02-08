@@ -32,9 +32,10 @@ function walkUpdateAshElementTree(oldAshElement, newAshElement, stream, isParent
 	} else if (newAshElement.type === COMPONENT_ASH_ELEMENT && oldAshElement.type === COMPONENT_ASH_ELEMENT && newAshElement.Spec === oldAshElement.Spec) {
 		let newAshElementArgs = newAshElement.args && newAshElement.args[0] ? newAshElement.args[0] : null;
 
-		if (oldAshElement.isDirty || oldAshElement.instance.shouldUpdate(newAshElementArgs)) {
+		if (oldAshElement.instance.__isDirty || oldAshElement.instance.shouldUpdate(newAshElementArgs)) {
 			oldAshElement.args = newAshElement.args;
 			oldAshElement.isDirty = true;
+			oldAshElement.instance.__isDirty = false;
 
 			oldAshElement.instance.onBeforeReceiveProps(newAshElementArgs);
 			

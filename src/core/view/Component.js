@@ -35,6 +35,7 @@ const LIFECYCLE_UNINITIALIZED = constants.LIFECYCLE_UNINITIALIZED;
  */
 export default class Component {
 	__element = null;
+	__isDirty = false;
 	__previousLifecycle = LIFECYCLE_UNINITIALIZED;
 	__currentLifecycle = LIFECYCLE_UNMOUNTED;
 	props = null;
@@ -95,7 +96,7 @@ export default class Component {
 	 */
 	update() {
 		if (this.__element.stream) {
-			this.__element.isDirty = true;
+			this.__isDirty = true;
 
 			this.__element.stream.push(true);
 		}

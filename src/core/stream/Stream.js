@@ -283,8 +283,8 @@ export default class Stream {
 	 * @returns {this}
 	 */
 	push(value) {
-		if (value !== undefined && value !== null && isFunction(value.then) && isFunction(value.catch)) {
-			value.then(this.push).catch(this.push);
+		if (value !== undefined && value !== null && isFunction(value.then)) {
+			value.then(this.push).then(undefined, this.push);
 			
 			return this;
 		}
