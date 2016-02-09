@@ -2,6 +2,12 @@ Ash changelog
 =============
 
 
+## v0.2.0
+
+- Router.middleware method is replaced by ash/koa-router module
+- Fixed bugs
+
+
 ## v0.1.3
 
 - Added table styles
