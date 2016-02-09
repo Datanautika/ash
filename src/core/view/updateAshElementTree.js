@@ -160,6 +160,7 @@ export default function updateAshElementTree(componentAshElement, stream) {
 
 	if (componentAshElement.instance.__isDirty) {
 		newAshElement = componentAshElement.instance.render(componentAshElement.instance.props, componentAshElement.instance.state);
+		componentAshElement.isDirty = true;
 
 		if (newAshElement) {
 			newAshElement.owner = componentAshElement;
