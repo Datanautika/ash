@@ -54,6 +54,10 @@ var _Router = require('ash/Router');
 
 var _Router2 = _interopRequireDefault(_Router);
 
+var _koaRouter = require('ash/koaRouter');
+
+var _koaRouter2 = _interopRequireDefault(_koaRouter);
+
 var _I18n = require('ash/I18n');
 
 var _I18n2 = _interopRequireDefault(_I18n);
@@ -137,7 +141,7 @@ app.use(function () {
 // init router
 var router = new _Router2.default();
 
-app.use(router.middleware(function () {
+app.use((0, _koaRouter2.default)(router, function () {
 	var ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee2(context, next) {
 		var viewStream, componentHtml;
 		return _regenerator2.default.wrap(function _callee2$(_context2) {

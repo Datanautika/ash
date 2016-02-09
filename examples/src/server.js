@@ -11,6 +11,7 @@ import send from 'koa-send';
 import http from 'http';
 import chalk from 'chalk';
 import Router from 'ash/Router';
+import koaRouter from 'ash/koaRouter';
 import I18n from 'ash/I18n';
 
 import App from './components/App';
@@ -54,7 +55,7 @@ app.use(async (context, next) => {
 // init router
 let router = new Router();
 
-app.use(router.middleware(async (context, next) => {
+app.use(koaRouter(router, async (context, next) => {
 	if (context.method !== 'HEAD' && context.method !== 'GET') {
 		return;
 	}
