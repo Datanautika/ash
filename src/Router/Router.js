@@ -4,7 +4,6 @@ import constants from '../core/internals/constants';
 
 
 const CLIENT_PLATFORM = constants.CLIENT_PLATFORM;
-const NOT_FOUND_HTTP_CODE = 404;
 
 // regex for stripping a leading hash/slash and trailing space.
 const ROUTE_STRIPPER = /^[#\/]|\s+$/g;
@@ -257,31 +256,5 @@ export default class Router {
 		});
 
 		return this.routes[0].stream;
-	}
-
-	/**
-	 * Creates middleware for koa framework, using async functions
-	 *
-	 * @param {Function} fn
-	 * @returns {Function}
-	 */
-	middleware(fn) {
-		return async (context, next) => {
-			// get method only
-			if (context.method === 'GET' && context.method === 'HEAD') {
-				return;
-			}
-
-			// response is already handled
-			if (context.body && context.body !== null || context.status !== NOT_FOUND_HTTP_CODE) {
-				return;
-			}
-
-			let isRouteMatched = router.__loadUrl(context.path);
-
-			if (isRouteMatched) {
-				await fn(context, next);
-			}
-		};
 	}
 }

@@ -20,12 +20,9 @@ var _constants2 = _interopRequireDefault(_constants);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { return step("next", value); }, function (err) { return step("throw", err); }); } } return step("next"); }); }; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var CLIENT_PLATFORM = _constants2.default.CLIENT_PLATFORM;
-var NOT_FOUND_HTTP_CODE = 404;
 
 // regex for stripping a leading hash/slash and trailing space.
 var ROUTE_STRIPPER = /^[#\/]|\s+$/g;
@@ -285,44 +282,6 @@ var Router = function () {
 			});
 
 			return this.routes[0].stream;
-		}
-
-		/**
-   * Creates middleware for koa framework, using async functions
-   *
-   * @param {Function} fn
-   * @returns {Function}
-   */
-
-	}, {
-		key: 'middleware',
-		value: function middleware(fn) {
-			var _this2 = this;
-
-			return function () {
-				var ref = _asyncToGenerator(function* (context, next) {
-					// get method only
-					if (context.method === 'GET' && context.method === 'HEAD') {
-						return;
-					}
-
-					// response is already handled
-					if (context.body && context.body !== null || context.status !== NOT_FOUND_HTTP_CODE) {
-						return;
-					}
-
-					var isRouteMatched = router.__loadUrl(context.path);
-
-					if (isRouteMatched) {
-						yield fn(context, next);
-					}
-				}),
-				    _this = _this2;
-
-				return function (_x6, _x7) {
-					return ref.apply(_this, arguments);
-				};
-			}();
 		}
 	}, {
 		key: 'isAtRoot',
