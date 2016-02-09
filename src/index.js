@@ -14,7 +14,7 @@ import stringifyViewStream from './core/textRenderer/stringifyViewStream';
 /**
  * Ash object.
  *
- * @version 0.1.2
+ * @version 0.1.3
  */
 let ash = {
 	/**
@@ -22,7 +22,7 @@ let ash = {
 	 *
 	 * @type {string}
 	 */
-	VERSION: '0.1.2',
+	VERSION: '0.1.3',
 
 	/**
 	 * Support object.

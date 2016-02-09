@@ -151,7 +151,7 @@
 	/**
 	 * Ash object.
 	 *
-	 * @version 0.1.2
+	 * @version 0.1.3
 	 */
 	var ash = {
 		/**
@@ -159,7 +159,7 @@
 	  *
 	  * @type {string}
 	  */
-		VERSION: '0.1.2',
+		VERSION: '0.1.3',
 
 		/**
 	  * Support object.

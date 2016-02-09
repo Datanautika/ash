@@ -2,6 +2,12 @@ Ash changelog
 =============
 
 
+## v0.1.3
+
+- Added table styles
+- Fixed bugs
+
+
 ## v0.1.2
 
 - Fixed bugs
