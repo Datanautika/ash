@@ -37,7 +37,7 @@ function render(viewStream, renderStream) {
 		// render to the Real DOM, if needed
 		if (!isNodeTreeValid || !isNodeTreeValidated) {
 			if (isNodeTreeValidated) {
-				throw new Error('Existing html is invalid!');
+				console.warn('Existing html is invalid!');
 			}
 
 			// remove existing nodes

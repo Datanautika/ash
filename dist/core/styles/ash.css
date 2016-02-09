@@ -976,6 +976,57 @@ ol {
 
 
 /**
+ * Tables
+ */
+
+.table {
+}
+
+.tableHead {
+}
+
+.tableHead .tableCell {
+	position: relative;
+	padding-top: 0;
+	padding-bottom: 1bh;
+
+	font-weight: 600;
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0.375bh;
+		height: 2px;
+
+		background-color: var(--colors.primary1.base);
+	}
+}
+
+.tableBody {
+}
+
+.tableCell {
+	padding: 0.25bh;
+
+	font-weight: inherit;
+
+	&:first-child {
+		padding-left: 0;
+	}
+
+	&:last-child {
+		padding-right: 0;
+	}
+
+	> code {
+		line-height: 0;
+	}
+}
+
+
+/**
  * Grid
  */
 body {

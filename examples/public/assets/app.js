@@ -312,7 +312,7 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"storyTitleHeading":"ash__storyTitleHeading","storyLevel1Heading":"ash__storyLevel1Heading","storyLevel2Heading":"ash__storyLevel2Heading","storyLevel3Heading":"ash__storyLevel3Heading","storyLevel4Heading":"ash__storyLevel4Heading","sectionTitleHeading":"ash__sectionTitleHeading","sectionLevel1Heading":"ash__sectionLevel1Heading","sectionLevel2Heading":"ash__sectionLevel2Heading","sectionLevel3Heading":"ash__sectionLevel3Heading","sectionLevel4Heading":"ash__sectionLevel4Heading","author":"ash__author","list":"ash__list","orderedList":"ash__orderedList"};
+	module.exports = {"storyTitleHeading":"ash__storyTitleHeading","storyLevel1Heading":"ash__storyLevel1Heading","storyLevel2Heading":"ash__storyLevel2Heading","storyLevel3Heading":"ash__storyLevel3Heading","storyLevel4Heading":"ash__storyLevel4Heading","sectionTitleHeading":"ash__sectionTitleHeading","sectionLevel1Heading":"ash__sectionLevel1Heading","sectionLevel2Heading":"ash__sectionLevel2Heading","sectionLevel3Heading":"ash__sectionLevel3Heading","sectionLevel4Heading":"ash__sectionLevel4Heading","author":"ash__author","list":"ash__list","orderedList":"ash__orderedList","table":"ash__table","tableHead":"ash__tableHead","tableCell":"ash__tableCell","tableBody":"ash__tableBody"};
 
 /***/ },
 /* 5 */
@@ -2798,7 +2798,7 @@
 		var newAshElement = undefined;
 		var oldAshElement = componentAshElement.children[0] || null;
 
-		if (componentAshElement.isDirty) {
+		if (componentAshElement.instance.__isDirty) {
 			newAshElement = componentAshElement.instance.render(componentAshElement.instance.props, componentAshElement.instance.state);
 
 			if (newAshElement) {
@@ -3050,7 +3050,7 @@
 			// render to the Real DOM, if needed
 			if (!isNodeTreeValid || !isNodeTreeValidated) {
 				if (isNodeTreeValidated) {
-					throw new Error('Existing html is invalid!');
+					console.warn('Existing html is invalid!');
 				}
 
 				// remove existing nodes
