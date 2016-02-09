@@ -1,1 +1,1 @@
-module.exports = require('./dist/koa-router');
+module.exports = require('./dist/koaRouter');
