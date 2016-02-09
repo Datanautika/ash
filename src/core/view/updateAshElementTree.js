@@ -158,7 +158,7 @@ export default function updateAshElementTree(componentAshElement, stream) {
 	let newAshElement;
 	let oldAshElement = componentAshElement.children[0] || null;
 
-	if (componentAshElement.isDirty) {
+	if (componentAshElement.instance.__isDirty) {
 		newAshElement = componentAshElement.instance.render(componentAshElement.instance.props, componentAshElement.instance.state);
 
 		if (newAshElement) {

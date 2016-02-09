@@ -167,7 +167,7 @@ function updateAshElementTree(componentAshElement, stream) {
 	var newAshElement = undefined;
 	var oldAshElement = componentAshElement.children[0] || null;
 
-	if (componentAshElement.isDirty) {
+	if (componentAshElement.instance.__isDirty) {
 		newAshElement = componentAshElement.instance.render(componentAshElement.instance.props, componentAshElement.instance.state);
 
 		if (newAshElement) {
