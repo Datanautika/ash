@@ -5125,6 +5125,7 @@
 			key: '__loadUrl',
 			value: function __loadUrl() {
 				var fragment = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
+				var context = arguments[1];
 
 				this.fragment = normalizePathFragment(fragment);
 
@@ -5133,6 +5134,10 @@
 						var parameterNames = this.routes[i].route.parameterNames.concat('search');
 						var parameters = extractParameters(this.routes[i].route, this.fragment);
 						var result = {};
+
+						if (context && context.request && context.response) {
+							result.context = context;
+						}
 
 						for (var j = 0; j < parameterNames.length; j++) {
 							result[parameterNames[j]] = parameters[j];
