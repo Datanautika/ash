@@ -4518,6 +4518,10 @@
 			return false;
 		}
 
+		if (!nodeTree.tagName && nodeTree.textContent !== ashNodeTree.text) {
+			return false;
+		}
+
 		if (nodeTree.getAttribute && nodeTree.getAttribute(ID_ATTRIBUTE_NAME) !== ashNodeTree.id || nodeTree.getAttribute && nodeTree.getAttribute(INDEX_ATTRIBUTE_NAME) >> 0 !== ashNodeTree.index) {
 			return false;
 		}
