@@ -110,7 +110,3 @@ sftp-config.json
 # Project files
 
 $/*
-
-## custom/modified node modules
-!node_modules/postcss-pxtorem
-!node_modules/postcss-vertical-rhythm
