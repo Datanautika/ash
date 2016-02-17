@@ -1993,11 +1993,11 @@ body.hasGrid:after {
 	}
 }
 .App__root {
-	padding: 2.8rem 1.4rem;
+	padding: NaNpx NaNpx;
 }
 
 .App__root p {
-	margin-top: 0.7rem;
+	margin-top: NaNpx;
 }
 
 .App__root p:first-child {
@@ -2005,7 +2005,7 @@ body.hasGrid:after {
 }
 
 .App__root p a {
-	margin-left: 0.7rem;
+	margin-left: NaNpx;
 }
 
 .App__root p a:first-child {
@@ -2013,5 +2013,5 @@ body.hasGrid:after {
 }
 
 .App__items {
-	margin-top: 1.4rem;
+	margin-top: NaNpx;
 }

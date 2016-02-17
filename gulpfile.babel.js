@@ -6,13 +6,11 @@ import webpack from 'webpack-stream';
 import fs from 'fs';
 import ExtractText from 'extract-text-webpack-plugin';
 import autoprefixer from 'autoprefixer';
-import postcssImport from 'postcss-import';
 import postcssVariables from 'postcss-css-variables';
 import postcssVerticalRhythm from 'postcss-vertical-rhythm';
 import postcssNested from 'postcss-nested';
 import postcssPxToRem from 'postcss-pxtorem';
 import postcssCalc from 'postcss-calc';
-import postcssConditionals from 'postcss-conditionals';
 
 import {getConfig} from './src/core/config';
 import flattenTree from './src/core/utils/flattenTree';
@@ -69,12 +67,10 @@ gulp.task(APP_WEBPACK, () => gulp.src('./examples/dist/compat/app.js')
 			new ExtractText('app.css', {allChunks: true})
 		],
 		postcss: [
-			postcssImport(),
 			postcssNested(),
 			postcssVariables({
 				variables: flattenTree(getConfig(), {valuesToString: true})
 			}),
-			postcssConditionals(),
 			postcssCalc({precision: 8}),
 			postcssVerticalRhythm({
 				unit: 'bh'
