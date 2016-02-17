@@ -2,6 +2,14 @@ Ash changelog
 =============
 
 
+## v0.3.0
+
+- Router koa middleware passes koa context to the router
+- Invalid html rendered on server doesn't throw an error, only logs warning to the console
+- Fixed styles
+- Updated dependencies
+
+
 ## v0.2.1
 
 - Fixed bugs

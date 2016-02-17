@@ -8,7 +8,7 @@ Javascript framework for building applications.
 
 Requires:
 - [CSS modules](https://github.com/css-modules/css-modules) for processing css files
-- Postcss plugins: postcss-css-variables, postcss-vertical-rhythm (already included in node_modules), postcss-nested, postcss-pxtorem, postcss-calc
+- Postcss plugins: postcss-css-variables, postcss-vertical-rhythm, postcss-nested, postcss-pxtorem, postcss-calc
 
 ```
 npm install datanautika/ash --save

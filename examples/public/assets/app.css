@@ -98,7 +98,7 @@ a:hover {
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
 abbr[title] {
-	border-bottom: 1px dotted;
+	border-bottom: 0.05rem dotted;
 }
 
 /**
@@ -184,7 +184,7 @@ svg:not(:root) {
  * Address margin not present in IE 8/9 and Safari.
  */
 figure {
-	margin: 1em 40px;
+	margin: 1em 2rem;
 }
 
 /**
@@ -349,8 +349,8 @@ input[type="search"]::-webkit-search-decoration {
  * Define consistent border, margin, and padding.
  */
 fieldset {
-	border: 1px solid #c0c0c0;
-	margin: 0 2px;
+	border: 0.05rem solid #c0c0c0;
+	margin: 0 0.1rem;
 	padding: 0.35em 0.625em 0.75em;
 }
 
@@ -490,6 +490,8 @@ a {
  */
 html {
 	overflow-y: scroll;
+
+	font: 20px/28px 'Brandon Text', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', 'Lucida Sans', sans-serif;
 }
 
 body {
@@ -510,9 +512,9 @@ body {
 html {
 	color: #282623;
 	background-color: #fff;
-	font-size: 20px;
-	font-family: 'Brandon Text', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', 'Lucida Sans', sans-serif;
+	
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'onum', 'pnum';
+	
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'onum', 'pnum';
 }
 
@@ -833,7 +835,7 @@ h6 {
 	height: 0;
 	margin-left: -2.8rem;
 	width: 5.6rem;
-	border-bottom: 2px solid #ffb81d;
+	border-bottom: 0.1rem solid #ffb81d;
 }
 
 .ash__storyLevel1Heading b {
@@ -934,7 +936,7 @@ h6 {
 	height: 0;
 	margin-left: 0;
 	width: 5.6rem;
-	border-bottom: 2px solid #ffb81d;
+	border-bottom: 0.1rem solid #ffb81d;
 }
 
 .ash__sectionLevel2Heading {
@@ -1991,11 +1993,11 @@ body.hasGrid:after {
 	}
 }
 .App__root {
-	padding: 2.8rem 1.4rem;
+	padding: NaNpx NaNpx;
 }
 
 .App__root p {
-	margin-top: 0.7rem;
+	margin-top: NaNpx;
 }
 
 .App__root p:first-child {
@@ -2003,7 +2005,7 @@ body.hasGrid:after {
 }
 
 .App__root p a {
-	margin-left: 0.7rem;
+	margin-left: NaNpx;
 }
 
 .App__root p a:first-child {
@@ -2011,5 +2013,5 @@ body.hasGrid:after {
 }
 
 .App__items {
-	margin-top: 1.4rem;
+	margin-top: NaNpx;
 }

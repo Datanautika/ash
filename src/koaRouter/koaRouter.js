@@ -23,7 +23,7 @@ export default function koaRouter(router, fn) {
 			return;
 		}
 
-		let isRouteMatched = router.__loadUrl(context.path);
+		let isRouteMatched = router.__loadUrl(context.path, context);
 
 		if (isRouteMatched) {
 			await fn(context, next);

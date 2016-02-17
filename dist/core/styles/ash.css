@@ -485,6 +485,8 @@ a {
  */
 html {
 	overflow-y: scroll;
+
+	font: calc(var(--typographicScale.base) * 1px)/calc(var(--grid.baselineHeight) * 1px) var(--text.fontFamily);
 }
 
 body {
@@ -505,8 +507,7 @@ body {
 html {
 	color: var(--text.color);
 	background-color: var(--text.backgroundColor);
-	font-size: calc(var(--typographicScale.base) * 1px);
-	font-family: var(--text.fontFamily);
+	
 	font-feature-settings: var(--text.fontFeatures);
 }
 

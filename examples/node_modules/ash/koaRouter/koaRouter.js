@@ -35,7 +35,7 @@ function koaRouter(router, fn) {
 				return;
 			}
 
-			var isRouteMatched = router.__loadUrl(context.path);
+			var isRouteMatched = router.__loadUrl(context.path, context);
 
 			if (isRouteMatched) {
 				yield fn(context, next);

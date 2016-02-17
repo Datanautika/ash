@@ -151,7 +151,7 @@
 	/**
 	 * Ash object.
 	 *
-	 * @version 0.2.1
+	 * @version 0.3.0
 	 */
 	var ash = {
 		/**
@@ -159,7 +159,7 @@
 	  *
 	  * @type {string}
 	  */
-		VERSION: '0.2.1',
+		VERSION: '0.3.0',
 
 		/**
 	  * Support object.
@@ -4518,6 +4518,10 @@
 			return false;
 		}
 
+		if (!nodeTree.tagName && nodeTree.textContent !== ashNodeTree.text) {
+			return false;
+		}
+
 		if (nodeTree.getAttribute && nodeTree.getAttribute(ID_ATTRIBUTE_NAME) !== ashNodeTree.id || nodeTree.getAttribute && nodeTree.getAttribute(INDEX_ATTRIBUTE_NAME) >> 0 !== ashNodeTree.index) {
 			return false;
 		}
@@ -5121,6 +5125,7 @@
 			key: '__loadUrl',
 			value: function __loadUrl() {
 				var fragment = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
+				var context = arguments[1];
 
 				this.fragment = normalizePathFragment(fragment);
 
@@ -5129,6 +5134,10 @@
 						var parameterNames = this.routes[i].route.parameterNames.concat('search');
 						var parameters = extractParameters(this.routes[i].route, this.fragment);
 						var result = {};
+
+						if (context && context.request && context.response) {
+							result.context = context;
+						}
 
 						for (var j = 0; j < parameterNames.length; j++) {
 							result[parameterNames[j]] = parameters[j];

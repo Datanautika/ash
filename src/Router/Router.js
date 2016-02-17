@@ -181,7 +181,7 @@ export default class Router {
 		return false;
 	}
 
-	__loadUrl(fragment = '') {
+	__loadUrl(fragment = '', context) {
 		this.fragment = normalizePathFragment(fragment);
 
 		for (let i = 0; i < this.routes.length; i++) {
@@ -189,6 +189,10 @@ export default class Router {
 				let parameterNames = this.routes[i].route.parameterNames.concat('search');
 				let parameters = extractParameters(this.routes[i].route, this.fragment);
 				let result = {};
+
+				if (context && context.request && context.response) {
+					result.context = context;
+				}
 
 				for (let j = 0; j < parameterNames.length; j++) {
 					result[parameterNames[j]] = parameters[j];
