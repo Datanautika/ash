@@ -490,6 +490,8 @@ a {
  */
 html {
 	overflow-y: scroll;
+
+	font: 20px/28px 'Brandon Text', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', 'Lucida Sans', sans-serif;
 }
 
 body {
@@ -510,9 +512,9 @@ body {
 html {
 	color: #282623;
 	background-color: #fff;
-	font-size: 20px;
-	font-family: 'Brandon Text', Futura, 'Gill Sans', Calibri, 'Dejavu Sans', 'Lucida Sans', sans-serif;
+	
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'onum', 'pnum';
+	
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'onum', 'pnum';
 }
 
