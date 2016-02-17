@@ -75,19 +75,18 @@ gulp.task(APP_WEBPACK, () => gulp.src('./examples/dist/compat/app.js')
 				variables: flattenTree(getConfig(), {valuesToString: true})
 			}),
 			postcssConditionals(),
+			postcssCalc({precision: 8}),
+			postcssVerticalRhythm({
+				unit: 'bh'
+			}),
 			postcssPxToRem({
 				rootValue: 20,
 				unitPrecision: 8,
-				propWhiteList: ['font', 'font-size', 'line-height', 'letter-spacing', 'width', 'height', 'left', 'right', 'top', 'bottom', 'background-size'],
+				propWhiteList: ['font', 'font-size', 'line-height', 'letter-spacing', 'width', 'height', 'left', 'right', 'top', 'bottom', 'background-size', 'margin', 'margin-left', 'margin-right', 'margin-top', 'margin-bottom', 'padding', 'padding-left', 'padding-right', 'padding-top', 'padding-bottom', 'border', 'border-left', 'border-right', 'border-top', 'border-bottom', 'background'],
 				replace: true,
 				mediaQuery: false,
 				selectorBlackList: ['html']
 			}),
-			postcssVerticalRhythm({
-				baselineHeight: 28,
-				baseFontSize: 20
-			}),
-			postcssCalc({precision: 8}),
 			autoprefixer({
 				browsers: ['> 1%', 'last 2 versions'],
 				remove: false
