@@ -1923,6 +1923,15 @@ ol {
 
 
 /**
+ * Image
+ */
+
+.ash__image img {
+	width: 100%;
+}
+
+
+/**
  * Grid
  */
 body.hasGrid:after {

@@ -1028,6 +1028,17 @@ ol {
 
 
 /**
+ * Image
+ */
+
+.image {
+	img {
+		width: 100%;
+	}
+}
+
+
+/**
  * Grid
  */
 body {
