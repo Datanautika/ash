@@ -3855,7 +3855,13 @@
 	}
 
 	function comparePatches(a, b) {
-		return a.sortOrder - b.sortOrder;
+		if (a.sortOrder > b.sortOrder) {
+			return 1;
+		} else if (a.sortOrder < b.sortOrder) {
+			return -1;
+		}
+
+		return 0;
 	}
 
 	function nodeIndex() /*node*/{
@@ -3993,7 +3999,7 @@
 			}
 		}
 
-		var maxDigits = patches.maxIndex > 0 ? Math.floor(Math.log(Math.abs(Math.floor(patches.maxIndex))) / Math.LN10) + 1 : 1;
+		var maxDigits = maxIndex > 0 ? Math.floor(Math.log(Math.abs(Math.floor(maxIndex))) / Math.LN10) + 1 : 1;
 
 		var ZERO_PADDED_9 = zeroPadNumber(9, maxDigits);
 		var ZERO_PADDED_8 = zeroPadNumber(8, maxDigits);
@@ -4032,8 +4038,17 @@
 			// and now the last level
 			patches[i].sortOrder += zeroPadNumber(patches[i].indices[patches[i].indices.length - 1], maxDigits);
 
-			// convert to number;
-			patches[i].sortOrder = parseInt(patches[i].sortOrder, 10);
+			// determine max length of sorting string
+			if (sortOrderLength < patches[i].sortOrder.length) {
+				sortOrderLength = patches[i].sortOrder.length;
+			}
+		}
+
+		// pad the string
+		for (var i = 0; i < patches.length; i++) {
+			if (sortOrderLength - patches[i].sortOrder.length + 1 > 0) {
+				patches[i].sortOrder = Array(sortOrderLength - patches[i].sortOrder.length + 1).join('0').concat(patches[i].sortOrder);
+			}
 		}
 
 		// sort patches by their order
