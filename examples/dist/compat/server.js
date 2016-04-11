@@ -131,10 +131,9 @@ app.use(function () {
 				}
 			}
 		}, _callee, undefined);
-	})),
-	    _this = undefined;
+	}));
 	return function (_x, _x2) {
-		return ref.apply(_this, arguments);
+		return ref.apply(this, arguments);
 	};
 }());
 
@@ -182,10 +181,9 @@ app.use((0, _koaRouter2.default)(router, function () {
 				}
 			}
 		}, _callee2, undefined);
-	})),
-	    _this = undefined;
+	}));
 	return function (_x3, _x4) {
-		return ref.apply(_this, arguments);
+		return ref.apply(this, arguments);
 	};
 }()));
 

@@ -80,26 +80,26 @@ function walkUpdateAshElementTree(oldAshElement, newAshElement, stream, isParent
 			walkUpdateAshElementTree(oldAshElement.children[0], oldAshElement.children[0], stream, false);
 		}
 	} else if (newAshElement.type === FUNCTION_ASH_ELEMENT && oldAshElement.type === FUNCTION_ASH_ELEMENT && newAshElement.spec === oldAshElement.spec) {
-		var newAshElementArgs = newAshElement.args && newAshElement.args[0] ? newAshElement.args[0] : null;
+		var _newAshElementArgs = newAshElement.args && newAshElement.args[0] ? newAshElement.args[0] : null;
 		var oldAshElementArgs = oldAshElement.args && oldAshElement.args[0] ? oldAshElement.args[0] : null;
 
-		if (newAshElementArgs !== oldAshElementArgs) {
+		if (_newAshElementArgs !== oldAshElementArgs) {
 			// create child for the new element
-			var render = oldAshElement.spec(newAshElement.args[0], oldAshElement.args[0]);
+			var _render = oldAshElement.spec(newAshElement.args[0], oldAshElement.args[0]);
 
 			oldAshElement.args = newAshElement.args;
 			oldAshElement.isDirty = true;
 
 			// adding children to the queue
-			if (render) {
-				render.owner = oldAshElement;
-				render.parent = oldAshElement;
-				render.index = 0;
+			if (_render) {
+				_render.owner = oldAshElement;
+				_render.parent = oldAshElement;
+				_render.index = 0;
 
 				if (oldAshElement.children[0]) {
-					walkUpdateAshElementTree(oldAshElement.children[0], render, stream, true);
+					walkUpdateAshElementTree(oldAshElement.children[0], _render, stream, true);
 				} else {
-					walkUpdateAshElementTree(null, render, stream, true);
+					walkUpdateAshElementTree(null, _render, stream, true);
 				}
 			} else if (oldAshElement.children[0]) {
 				// deleting old surplus children

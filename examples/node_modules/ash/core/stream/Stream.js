@@ -1,10 +1,10 @@
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _isFunction = require('../internals/isFunction');
 
@@ -252,15 +252,15 @@ var Stream = function () {
 				this.__dependencies = dependencies;
 				this.__changedDependencies = [];
 
-				for (var i = 0; i < this.__dependencies.length; i++) {
-					this.__dependencies[i].__listeners.push(this);
+				for (var _i = 0; _i < this.__dependencies.length; _i++) {
+					this.__dependencies[_i].__listeners.push(this);
 				}
 
 				// add listeners to end stream
 				this.end.__dependencies = endStreams;
 
-				for (var i = 0; i < endStreams.length; i++) {
-					endStreams[i].__listeners.push(this.end);
+				for (var _i2 = 0; _i2 < endStreams.length; _i2++) {
+					endStreams[_i2].__listeners.push(this.end);
 				}
 
 				updateStream(this);

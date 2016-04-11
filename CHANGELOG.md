@@ -2,6 +2,13 @@ Ash changelog
 =============
 
 
+## v0.4.0
+
+- Fixed bugs
+- Updated styles
+- Updated dependencies
+
+
 ## v0.3.0
 
 - Router koa middleware passes koa context to the router

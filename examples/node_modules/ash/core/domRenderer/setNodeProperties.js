@@ -37,8 +37,12 @@ function setNodeProperties(node, properties, isNewlyInserted) {
 			} else if (prop === 'className' || prop === 'class') {
 				if (typeof node.className === 'string' && properties[prop]) {
 					node.className = properties[prop];
+				} else if (typeof node.className === 'string') {
+					node.className = '';
 				} else if (properties[prop]) {
 					node.setAttribute('class', properties[prop]);
+				} else {
+					node.setAttribute('class', '');
 				}
 			} else if (!(0, _isObject2.default)(properties[prop])) {
 				if (prop.substring(0, 6) === 'xlink:') {

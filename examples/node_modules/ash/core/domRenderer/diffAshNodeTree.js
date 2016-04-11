@@ -71,8 +71,8 @@ function walkDiffAshNodeChildren(oldChildren, newChildren, oldAshNode, newAshNod
 
 	// no children are dirty, walk them
 	if (!isChildDirty && oldChildren.length === newChildren.length) {
-		for (var i = 0; i < oldChildren.length; i++) {
-			walkDiffAshNodeTree(oldChildren[i], newChildren[i], patches);
+		for (var _i = 0; _i < oldChildren.length; _i++) {
+			walkDiffAshNodeTree(oldChildren[_i], newChildren[_i], patches);
 		}
 
 		return patches;
@@ -82,11 +82,11 @@ function walkDiffAshNodeChildren(oldChildren, newChildren, oldAshNode, newAshNod
 	var foundIndex = undefined;
 
 	// first iterate over old children
-	for (var i = 0; i < oldChildren.length; i++) {
+	for (var _i2 = 0; _i2 < oldChildren.length; _i2++) {
 		var isChildFound = false;
 
 		for (var j = 0; j < newChildren.length; j++) {
-			if (oldChildren[i].computedKey === newChildren[j].computedKey) {
+			if (oldChildren[_i2].computedKey === newChildren[j].computedKey) {
 				isChildFound = true;
 				foundIndex = j;
 
@@ -97,49 +97,49 @@ function walkDiffAshNodeChildren(oldChildren, newChildren, oldAshNode, newAshNod
 		// node with matching key was found?
 		if (isChildFound) {
 			// is order same?
-			if (i !== foundIndex) {
+			if (_i2 !== foundIndex) {
 				patches.push({
 					type: PATCH_ORDER,
 					newId: newChildren[foundIndex].id,
-					id: oldChildren[i].id,
-					indices: oldChildren[i].indices,
-					streamId: oldChildren[i].streamId,
+					id: oldChildren[_i2].id,
+					indices: oldChildren[_i2].indices,
+					streamId: oldChildren[_i2].streamId,
 					index: foundIndex
 				});
 			}
 
 			// now walk inside those children...
-			walkDiffAshNodeTree(oldChildren[i], newChildren[foundIndex], patches);
+			walkDiffAshNodeTree(oldChildren[_i2], newChildren[foundIndex], patches);
 		} else {
 			// node is to be removed...
 			patches.push({
 				type: PATCH_REMOVE,
-				id: oldChildren[i].id,
-				indices: oldChildren[i].indices,
-				streamId: oldChildren[i].streamId
+				id: oldChildren[_i2].id,
+				indices: oldChildren[_i2].indices,
+				streamId: oldChildren[_i2].streamId
 			});
 		}
 	}
 
 	// now iterate over new children, if there are any
-	for (var i = 0; i < newChildren.length; i++) {
-		var isChildFound = false;
+	for (var _i3 = 0; _i3 < newChildren.length; _i3++) {
+		var _isChildFound = false;
 
-		for (var j = 0; j < oldChildren.length; j++) {
-			if (oldChildren[j].computedKey === newChildren[i].computedKey) {
-				isChildFound = true;
+		for (var _j = 0; _j < oldChildren.length; _j++) {
+			if (oldChildren[_j].computedKey === newChildren[_i3].computedKey) {
+				_isChildFound = true;
 
 				break;
 			}
 		}
 
 		// new child was not found
-		if (!isChildFound) {
+		if (!_isChildFound) {
 			patches.push({
 				type: PATCH_INSERT,
-				node: newChildren[i],
-				id: newChildren[i].id,
-				indices: newChildren[i].indices,
+				node: newChildren[_i3],
+				id: newChildren[_i3].id,
+				indices: newChildren[_i3].indices,
 				parentId: oldAshNode.id,
 				parentIndices: oldAshNode.indices
 			});

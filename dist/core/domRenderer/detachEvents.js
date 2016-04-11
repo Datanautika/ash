@@ -45,11 +45,11 @@ function detachEvents(id, streamId, eventName) {
 		// remove all events with id and ids that are matching it (ie. for 0.1 remove 0.1, 0.1.0, 0.1.1, etc.)
 		for (var topicName in _events2.default) {
 			if (_events2.default.hasOwnProperty(topicName)) {
-				for (var i = 0; i < _events2.default[topicName].length; i++) {
-					if (_events2.default[topicName][i].streamId && (0, _isMatching2.default)(splitId, _events2.default[topicName][i].id.split(INDEX_SEPARATOR), true) && !_events2.default[topicName][i].isNewlyInserted) {
-						_events2.default[topicName].splice(i, 1);
+				for (var _i = 0; _i < _events2.default[topicName].length; _i++) {
+					if (_events2.default[topicName][_i].streamId && (0, _isMatching2.default)(splitId, _events2.default[topicName][_i].id.split(INDEX_SEPARATOR), true) && !_events2.default[topicName][_i].isNewlyInserted) {
+						_events2.default[topicName].splice(_i, 1);
 
-						i--;
+						_i--;
 					}
 				}
 			}

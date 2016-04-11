@@ -78,8 +78,8 @@ function walkCreateAshNodeTree(ashNodeTree, ashElement, index, parentId, isParen
 				ashNodeTree.children = [];
 
 				// copy not dirty already walked children
-				for (var i = 0; i < index; i++) {
-					ashNodeTree.children[i] = ashNodeTree.oldChildren[i];
+				for (var _i = 0; _i < index; _i++) {
+					ashNodeTree.children[_i] = ashNodeTree.oldChildren[_i];
 				}
 			}
 		}

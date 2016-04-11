@@ -40,11 +40,11 @@ function findNode(nodeTree, nodeId, ashNodeIndices) {
 		}
 	}
 
-	for (var i = 0, length = node.childNodes.length; i < length; i++) {
-		if (node.childNodes[i].nodeType === 1 && node.childNodes[i][ID_ATTRIBUTE_NAME] === nodeId) {
-			return node.childNodes[i];
-		} else if (node.childNodes[i].nodeType === 3 && i === ashNodeIndices[ashNodeIndices.length - 1]) {
-			return node.childNodes[i];
+	for (var _i = 0, _length = node.childNodes.length; _i < _length; _i++) {
+		if (node.childNodes[_i].nodeType === 1 && node.childNodes[_i][ID_ATTRIBUTE_NAME] === nodeId) {
+			return node.childNodes[_i];
+		} else if (node.childNodes[_i].nodeType === 3 && _i === ashNodeIndices[ashNodeIndices.length - 1]) {
+			return node.childNodes[_i];
 		}
 	}
 
