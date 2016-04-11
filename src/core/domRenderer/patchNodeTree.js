@@ -188,6 +188,8 @@ export default function patchNodeTree(nodeTree /*, patches*/) {
 	const ZERO_PADDED_4 = zeroPadNumber(4, maxDigits);
 	const ZERO_PADDED_0 = zeroPadNumber(0, maxDigits);
 
+	let sortOrderLength = 0;
+
 	// compute sort order
 	for (let i = 0; i < patches.length; i++) {
 		patches[i].sortOrder = '';

@@ -4009,6 +4009,8 @@
 		var ZERO_PADDED_4 = zeroPadNumber(4, maxDigits);
 		var ZERO_PADDED_0 = zeroPadNumber(0, maxDigits);
 
+		var sortOrderLength = 0;
+
 		// compute sort order
 		for (var _i2 = 0; _i2 < patches.length; _i2++) {
 			patches[_i2].sortOrder = '';
