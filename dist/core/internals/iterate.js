@@ -23,13 +23,13 @@ function iterate(iterable) {
 			iterationResult = iterator.next();
 		}
 	} else if (typeof global.Symbol === 'function' && typeof iterable[global.Symbol.iterator] === 'function') {
-		var iterator = iterable[global.Symbol.iterator]();
-		var iterationResult = iterator.next();
+		var _iterator = iterable[global.Symbol.iterator]();
+		var _iterationResult = _iterator.next();
 
-		while (!iterationResult.done) {
-			result.push(iterationResult.value);
+		while (!_iterationResult.done) {
+			result.push(_iterationResult.value);
 
-			iterationResult = iterator.next();
+			_iterationResult = _iterator.next();
 		}
 	} else {
 		throw new Error(iterable + ' (iterable) must be an iterable.');

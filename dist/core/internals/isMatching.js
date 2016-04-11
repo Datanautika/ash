@@ -46,9 +46,9 @@ function isMatching(chain1, chain2, strict) {
 
 		return true;
 	} else {
-		for (var i = 0; i < chain1.length; i++) {
+		for (var _i = 0; _i < chain1.length; _i++) {
 			for (var j = 0; j < chain2.length; j++) {
-				if (chain1[i] === chain2[j]) {
+				if (chain1[_i] === chain2[j]) {
 					indexes.push(j);
 
 					break;
@@ -60,8 +60,8 @@ function isMatching(chain1, chain2, strict) {
 			}
 		}
 
-		for (var i = 0; i < indexes.length - 1; i++) {
-			if (indexes[i] >= indexes[i + 1]) {
+		for (var _i2 = 0; _i2 < indexes.length - 1; _i2++) {
+			if (indexes[_i2] >= indexes[_i2 + 1]) {
 				// indexes are't ordered, therefore there is no match
 				return false;
 			}

@@ -102,11 +102,10 @@ app.use((() => {
 
 		yield (0, _koaSend2.default)(context, context.path, options);
 		yield next();
-	}),
-	    _this = undefined;
+	});
 
 	return function (_x, _x2) {
-		return ref.apply(_this, arguments);
+		return ref.apply(this, arguments);
 	};
 })());
 
@@ -130,11 +129,10 @@ app.use((0, _koaRouter2.default)(router, (() => {
 		context.body = _fs2.default.readFileSync(_path2.default.join(ROOT_PATH, 'assets/index.html'), 'utf8').replace('%CONTENT%', componentHtml);
 
 		yield next();
-	}),
-	    _this = undefined;
+	});
 
 	return function (_x3, _x4) {
-		return ref.apply(_this, arguments);
+		return ref.apply(this, arguments);
 	};
 })()));
 

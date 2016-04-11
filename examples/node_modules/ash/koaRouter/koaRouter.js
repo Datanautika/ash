@@ -17,8 +17,6 @@ var NOT_FOUND_HTTP_CODE = 404;
  * @returns {Function}
  */
 function koaRouter(router, fn) {
-	var _this2 = this;
-
 	return function () {
 		var ref = _asyncToGenerator(function* (context, next) {
 			// get method only
@@ -40,11 +38,10 @@ function koaRouter(router, fn) {
 			if (isRouteMatched) {
 				yield fn(context, next);
 			}
-		}),
-		    _this = _this2;
+		});
 
 		return function (_x, _x2) {
-			return ref.apply(_this, arguments);
+			return ref.apply(this, arguments);
 		};
 	}();
 }

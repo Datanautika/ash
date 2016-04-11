@@ -1,10 +1,10 @@
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _constants = require('../internals/constants');
 
@@ -187,11 +187,11 @@ var AshElement = function () {
 				} else if (arguments[i] && typeof arguments[i].__iterator === 'function' || arguments[i] && typeof global.Symbol === 'function' && typeof arguments[i][global.Symbol.iterator]) {
 					var iteratorResult = (0, _iterate2.default)(arguments[i]);
 
-					for (var j = 0; j < iteratorResult.length; j++) {
-						if (typeof iteratorResult[j] === 'string' || typeof iteratorResult === 'number') {
-							children.push(new AshElement(ASH_NODE_ASH_ELEMENT, _AshNode2.default, '' + iteratorResult[j]));
-						} else if ((0, _isAshElement2.default)(iteratorResult[j])) {
-							children.push(iteratorResult[j]);
+					for (var _j = 0; _j < iteratorResult.length; _j++) {
+						if (typeof iteratorResult[_j] === 'string' || typeof iteratorResult === 'number') {
+							children.push(new AshElement(ASH_NODE_ASH_ELEMENT, _AshNode2.default, '' + iteratorResult[_j]));
+						} else if ((0, _isAshElement2.default)(iteratorResult[_j])) {
+							children.push(iteratorResult[_j]);
 						}
 					}
 				}

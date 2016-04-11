@@ -159,20 +159,20 @@ function flushCache(reindexCache, reorderCache) {
 	}
 
 	while (reorderCache.length > 0) {
-		for (var i = 0; i < reorderCache[0].childNodes.length; i++) {
-			var index = nodeIndex(reorderCache[0].childNodes[i]);
+		for (var _i = 0; _i < reorderCache[0].childNodes.length; _i++) {
+			var index = nodeIndex(reorderCache[0].childNodes[_i]);
 
-			if (index === reorderCache[0].childNodes[i][INDEX_ATTRIBUTE_NAME] || index + 1 === reorderCache[0].childNodes[i][INDEX_ATTRIBUTE_NAME]) {
+			if (index === reorderCache[0].childNodes[_i][INDEX_ATTRIBUTE_NAME] || index + 1 === reorderCache[0].childNodes[_i][INDEX_ATTRIBUTE_NAME]) {
 				continue;
 			} else {
-				if (reorderCache[0].childNodes[i][INDEX_ATTRIBUTE_NAME] > reorderCache[0].childNodes[i].length - 1) {
-					reorderCache[0].appendChild(reorderCache[0].childNodes[i]);
+				if (reorderCache[0].childNodes[_i][INDEX_ATTRIBUTE_NAME] > reorderCache[0].childNodes[_i].length - 1) {
+					reorderCache[0].appendChild(reorderCache[0].childNodes[_i]);
 				} else {
-					reorderCache[0].insertBefore(reorderCache[0].childNodes[i], reorderCache[0].childNodes[reorderCache[0].childNodes[i][INDEX_ATTRIBUTE_NAME]]);
+					reorderCache[0].insertBefore(reorderCache[0].childNodes[_i], reorderCache[0].childNodes[reorderCache[0].childNodes[_i][INDEX_ATTRIBUTE_NAME]]);
 				}
 
-				if (index + 1 < reorderCache[0].childNodes[i][INDEX_ATTRIBUTE_NAME]) {
-					i--;
+				if (index + 1 < reorderCache[0].childNodes[_i][INDEX_ATTRIBUTE_NAME]) {
+					_i--;
 				}
 			}
 		}
@@ -226,44 +226,44 @@ function patchNodeTree(nodeTree /*, patches*/) {
 	var ZERO_PADDED_0 = zeroPadNumber(0, maxDigits);
 
 	// compute sort order
-	for (var i = 0; i < patches.length; i++) {
-		patches[i].sortOrder = '';
+	for (var _i2 = 0; _i2 < patches.length; _i2++) {
+		patches[_i2].sortOrder = '';
 
 		// first we order patches by their levels without the last level
-		for (var j = 0; j < patches[i].indices.length - 1; j++) {
-			patches[i].sortOrder += zeroPadNumber(patches[i].indices[j], maxDigits);
+		for (var _j = 0; _j < patches[_i2].indices.length - 1; _j++) {
+			patches[_i2].sortOrder += zeroPadNumber(patches[_i2].indices[_j], maxDigits);
 		}
 
 		// then the patch type is important
-		if (patches[i].type === PATCH_ELEMENT_ASH_NODE) {
-			patches[i].sortOrder += ZERO_PADDED_9;
-		} else if (patches[i].type === PATCH_TEXT_ASH_NODE) {
-			patches[i].sortOrder += ZERO_PADDED_8;
-		} else if (patches[i].type === PATCH_PROPERTIES) {
-			patches[i].sortOrder += ZERO_PADDED_7;
-		} else if (patches[i].type === PATCH_REMOVE) {
-			patches[i].sortOrder += ZERO_PADDED_6;
-		} else if (patches[i].type === PATCH_INSERT) {
-			patches[i].sortOrder += ZERO_PADDED_5;
-		} else if (patches[i].type === PATCH_ORDER) {
-			patches[i].sortOrder += ZERO_PADDED_4;
+		if (patches[_i2].type === PATCH_ELEMENT_ASH_NODE) {
+			patches[_i2].sortOrder += ZERO_PADDED_9;
+		} else if (patches[_i2].type === PATCH_TEXT_ASH_NODE) {
+			patches[_i2].sortOrder += ZERO_PADDED_8;
+		} else if (patches[_i2].type === PATCH_PROPERTIES) {
+			patches[_i2].sortOrder += ZERO_PADDED_7;
+		} else if (patches[_i2].type === PATCH_REMOVE) {
+			patches[_i2].sortOrder += ZERO_PADDED_6;
+		} else if (patches[_i2].type === PATCH_INSERT) {
+			patches[_i2].sortOrder += ZERO_PADDED_5;
+		} else if (patches[_i2].type === PATCH_ORDER) {
+			patches[_i2].sortOrder += ZERO_PADDED_4;
 		} else {
-			patches[i].sortOrder += ZERO_PADDED_0;
+			patches[_i2].sortOrder += ZERO_PADDED_0;
 		}
 
 		// and now the last level
-		patches[i].sortOrder += zeroPadNumber(patches[i].indices[patches[i].indices.length - 1], maxDigits);
+		patches[_i2].sortOrder += zeroPadNumber(patches[_i2].indices[patches[_i2].indices.length - 1], maxDigits);
 
 		// determine max length of sorting string
-		if (sortOrderLength < patches[i].sortOrder.length) {
-			sortOrderLength = patches[i].sortOrder.length;
+		if (sortOrderLength < patches[_i2].sortOrder.length) {
+			sortOrderLength = patches[_i2].sortOrder.length;
 		}
 	}
 
 	// pad the string
-	for (var i = 0; i < patches.length; i++) {
-		if (sortOrderLength - patches[i].sortOrder.length + 1 > 0) {
-			patches[i].sortOrder = Array(sortOrderLength - patches[i].sortOrder.length + 1).join('0').concat(patches[i].sortOrder);
+	for (var _i3 = 0; _i3 < patches.length; _i3++) {
+		if (sortOrderLength - patches[_i3].sortOrder.length + 1 > 0) {
+			patches[_i3].sortOrder = Array(sortOrderLength - patches[_i3].sortOrder.length + 1).join('0').concat(patches[_i3].sortOrder);
 		}
 	}
 
@@ -273,85 +273,85 @@ function patchNodeTree(nodeTree /*, patches*/) {
 	// now iterate over patches...
 	var lastLevel = patches[patches.length - 1].indices.length;
 
-	for (var i = patches.length - 1; i >= 0; i--) {
-		if (lastLevel < patches[i].indices.length) {
+	for (var _i4 = patches.length - 1; _i4 >= 0; _i4--) {
+		if (lastLevel < patches[_i4].indices.length) {
 			// patching new level, must flush cache
 			flushCache(reindexCache, reorderCache);
 
-			lastLevel = patches[i].indices.length;
+			lastLevel = patches[_i4].indices.length;
 		}
 
-		if (patches[i].type === PATCH_ELEMENT_ASH_NODE) {
+		if (patches[_i4].type === PATCH_ELEMENT_ASH_NODE) {
 			// remove old events
-			(0, _detachEvents2.default)(patches[i].id, patches[i].streamId);
+			(0, _detachEvents2.default)(patches[_i4].id, patches[_i4].streamId);
 
 			// find node
-			node = (0, _findNode2.default)(nodeTree, patches[i].id, patches[i].indices);
+			node = (0, _findNode2.default)(nodeTree, patches[_i4].id, patches[_i4].indices);
 
 			if (!node) {
 				throw new Error('Patching the DOM was unsuccesful!');
 			}
 
 			// new node, but change the order and index - they must be from the node-to-be-removed, because patch for order is separate...
-			var newNode = (0, _createNodeTree2.default)(patches[i].node);
+			var newNode = (0, _createNodeTree2.default)(patches[_i4].node);
 
 			newNode[ID_ATTRIBUTE_NAME] = node[ID_ATTRIBUTE_NAME];
 			newNode[INDEX_ATTRIBUTE_NAME] = node[INDEX_ATTRIBUTE_NAME];
 
 			node.parentNode.replaceChild(newNode, node);
-		} else if (patches[i].type === PATCH_TEXT_ASH_NODE) {
-			node = (0, _findNode2.default)(nodeTree, patches[i].id, patches[i].indices);
+		} else if (patches[_i4].type === PATCH_TEXT_ASH_NODE) {
+			node = (0, _findNode2.default)(nodeTree, patches[_i4].id, patches[_i4].indices);
 
 			if (!node) {
 				throw new Error('Patching the DOM was unsuccesful!');
 			}
 
-			node.nodeValue = patches[i].text;
-		} else if (patches[i].type === PATCH_PROPERTIES) {
-			node = (0, _findNode2.default)(nodeTree, patches[i].id, patches[i].indices);
+			node.nodeValue = patches[_i4].text;
+		} else if (patches[_i4].type === PATCH_PROPERTIES) {
+			node = (0, _findNode2.default)(nodeTree, patches[_i4].id, patches[_i4].indices);
 
 			if (!node) {
 				throw new Error('Patching the DOM was unsuccesful!');
 			}
 
-			(0, _setNodeProperties2.default)(node, patches[i].propertiesToChange, false);
-			(0, _removeNodeProperties2.default)(node, patches[i].propertiesToRemove);
-		} else if (patches[i].type === PATCH_REMOVE) {
-			node = (0, _findNode2.default)(nodeTree, patches[i].id, patches[i].indices);
+			(0, _setNodeProperties2.default)(node, patches[_i4].propertiesToChange, false);
+			(0, _removeNodeProperties2.default)(node, patches[_i4].propertiesToRemove);
+		} else if (patches[_i4].type === PATCH_REMOVE) {
+			node = (0, _findNode2.default)(nodeTree, patches[_i4].id, patches[_i4].indices);
 
 			if (!node) {
 				throw new Error('Patching the DOM was unsuccesful!');
 			}
 
 			// remove old events
-			(0, _detachEvents2.default)(patches[i].id, patches[i].streamId);
+			(0, _detachEvents2.default)(patches[_i4].id, patches[_i4].streamId);
 
 			node.parentNode.removeChild(node);
-		} else if (patches[i].type === PATCH_INSERT) {
-			node = (0, _findNode2.default)(nodeTree, patches[i].parentId, patches[i].parentIndices);
+		} else if (patches[_i4].type === PATCH_INSERT) {
+			node = (0, _findNode2.default)(nodeTree, patches[_i4].parentId, patches[_i4].parentIndices);
 
 			if (!node) {
 				throw new Error('Patching the DOM was unsuccesful!');
 			}
 
-			node.appendChild((0, _createNodeTree2.default)(patches[i].node));
+			node.appendChild((0, _createNodeTree2.default)(patches[_i4].node));
 
 			reorderCache.push(node);
-		} else if (patches[i].type === PATCH_ORDER) {
-			node = (0, _findNode2.default)(nodeTree, patches[i].id, patches[i].indices);
+		} else if (patches[_i4].type === PATCH_ORDER) {
+			node = (0, _findNode2.default)(nodeTree, patches[_i4].id, patches[_i4].indices);
 
 			if (!node) {
 				throw new Error('Patching the DOM was unsuccesful!');
 			}
 
 			// reindex events
-			(0, _reindexEvents2.default)(patches[i].id, patches[i].indices, patches[i].index, patches[i].streamId);
+			(0, _reindexEvents2.default)(patches[_i4].id, patches[_i4].indices, patches[_i4].index, patches[_i4].streamId);
 
 			reindexCache.push({
 				node: node,
-				newId: patches[i].newId,
-				newIndex: patches[i].index,
-				streamId: patches[i].streamId
+				newId: patches[_i4].newId,
+				newIndex: patches[_i4].index,
+				streamId: patches[_i4].streamId
 			});
 
 			reorderCache.push(node.parentNode);

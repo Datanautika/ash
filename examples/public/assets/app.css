@@ -571,8 +571,6 @@ p {
 
 	-webkit-hyphens: auto;
 
-	   -moz-hyphens: auto;
-
 	    -ms-hyphens: auto;
 
 	        hyphens: auto;
@@ -632,7 +630,6 @@ h1 {
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	-webkit-hyphens: none;
-	   -moz-hyphens: none;
 	    -ms-hyphens: none;
 	        hyphens: none;
 }
@@ -645,7 +642,6 @@ h2 {
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	-webkit-hyphens: none;
-	   -moz-hyphens: none;
 	    -ms-hyphens: none;
 	        hyphens: none;
 }
@@ -658,7 +654,6 @@ h3 {
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	-webkit-hyphens: none;
-	   -moz-hyphens: none;
 	    -ms-hyphens: none;
 	        hyphens: none;
 }
@@ -671,7 +666,6 @@ h4 {
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	-webkit-hyphens: none;
-	   -moz-hyphens: none;
 	    -ms-hyphens: none;
 	        hyphens: none;
 }
@@ -684,7 +678,6 @@ h5 {
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	-webkit-hyphens: none;
-	   -moz-hyphens: none;
 	    -ms-hyphens: none;
 	        hyphens: none;
 }
@@ -697,7 +690,6 @@ h6 {
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	-webkit-hyphens: none;
-	   -moz-hyphens: none;
 	    -ms-hyphens: none;
 	        hyphens: none;
 }
@@ -710,7 +702,6 @@ h6 {
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	-webkit-hyphens: none;
-	   -moz-hyphens: none;
 	    -ms-hyphens: none;
 	        hyphens: none;
 }
@@ -723,7 +714,6 @@ h6 {
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	-webkit-hyphens: none;
-	   -moz-hyphens: none;
 	    -ms-hyphens: none;
 	        hyphens: none;
 }
@@ -736,7 +726,6 @@ h6 {
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	-webkit-hyphens: none;
-	   -moz-hyphens: none;
 	    -ms-hyphens: none;
 	        hyphens: none;
 }
@@ -749,7 +738,6 @@ h6 {
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	-webkit-hyphens: none;
-	   -moz-hyphens: none;
 	    -ms-hyphens: none;
 	        hyphens: none;
 }
@@ -762,7 +750,6 @@ h6 {
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	-webkit-hyphens: none;
-	   -moz-hyphens: none;
 	    -ms-hyphens: none;
 	        hyphens: none;
 }
@@ -775,7 +762,6 @@ h6 {
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	-webkit-hyphens: none;
-	   -moz-hyphens: none;
 	    -ms-hyphens: none;
 	        hyphens: none;
 }
@@ -788,7 +774,6 @@ h6 {
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	-webkit-hyphens: none;
-	   -moz-hyphens: none;
 	    -ms-hyphens: none;
 	        hyphens: none;
 }
@@ -801,7 +786,6 @@ h6 {
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	-webkit-hyphens: none;
-	   -moz-hyphens: none;
 	    -ms-hyphens: none;
 	        hyphens: none;
 }
@@ -814,7 +798,6 @@ h6 {
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	-webkit-hyphens: none;
-	   -moz-hyphens: none;
 	    -ms-hyphens: none;
 	        hyphens: none;
 }
@@ -827,7 +810,6 @@ h6 {
 	-webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	        font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig', 'lnum', 'pnum';
 	-webkit-hyphens: none;
-	   -moz-hyphens: none;
 	    -ms-hyphens: none;
 	        hyphens: none;
 }
