@@ -449,7 +449,7 @@ th {
 	box-sizing: inherit;
 }
 
-* {
+*:not(text) {
 	font-size: inherit;
 	line-height: inherit;
 }
