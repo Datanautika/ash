@@ -16,7 +16,7 @@ const LIFECYCLE_MOUNTING = constants.LIFECYCLE_MOUNTING;
  */
 function walkCreateAshElementTree(ashElement, owner, index) {
 	if (!isComponentAshElement(owner)) {
-		throw new Error(owner + ' must be a Component type AshElement Object');
+		throw new Error(`${owner} (owner) must be a Component type AshElement Object.`);
 	}
 
 	let newOwner = owner;
@@ -37,7 +37,7 @@ function walkCreateAshElementTree(ashElement, owner, index) {
 		ashElement.instantiate();
 	} else if (isFunctionAshElement(ashElement)) {
 		// create child by running function
-		ashElement.children[0] = ashElement.spec(ashElement.args[0]);
+		ashElement.children[0] = ashElement.spec(ashElement.args[0], ashElement.args[1]);
 	}
 
 	for (let i = 0; i < ashElement.children.length; i++) {
@@ -85,7 +85,7 @@ export default function createAshElementTree(ashElement, stream) {
 		ashElementTree.instantiate();
 	} else if (isFunctionAshElement(ashElementTree)) {
 		// create child by running function
-		ashElementTree.children[0] = ashElementTree.spec(ashElementTree.args[0], null);
+		ashElementTree.children[0] = ashElementTree.spec(ashElementTree.args[0], ashElementTree.args[1]);
 	}
 
 	for (let i = 0; i < ashElementTree.children.length; i++) {

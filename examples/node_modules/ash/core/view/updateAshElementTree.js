@@ -19,17 +19,19 @@ var _constants2 = _interopRequireDefault(_constants);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var COMPONENT_ASH_ELEMENT = _constants2.default.COMPONENT_ASH_ELEMENT;
+var COMPONENT_ASH_ELEMENT = _constants2.default.COMPONENT_ASH_ELEMENT; /* eslint-disable complexity */
+
 var ASH_NODE_ASH_ELEMENT = _constants2.default.ASH_NODE_ASH_ELEMENT;
 var FUNCTION_ASH_ELEMENT = _constants2.default.FUNCTION_ASH_ELEMENT;
 
 /**
  * Walks AshElement tree for updating.
  *
- * @param {AshElement} oldAshElement
- * @param {AshElement} newAshElement
- * @param {Stream} stream
- * @param {boolean} isParentComponentDirty
+ * @param {AshElement} oldAshElement Old Ash Element
+ * @param {AshElement} newAshElement New Ash Element
+ * @param {Stream} stream View Stream
+ * @param {boolean} isParentComponentDirty `True` if parent Component is dirty, else `false`
+ * @returns {undefined} Always returns `undefined`
  */
 function walkUpdateAshElementTree(oldAshElement, newAshElement, stream, isParentComponentDirty) {
 	if (newAshElement === null && oldAshElement) {
@@ -46,16 +48,19 @@ function walkUpdateAshElementTree(oldAshElement, newAshElement, stream, isParent
 		// new element must be added as a child
 		newAshElement.parent.children[newAshElement.index] = newAshElement;
 	} else if (newAshElement.type === COMPONENT_ASH_ELEMENT && oldAshElement.type === COMPONENT_ASH_ELEMENT && newAshElement.Spec === oldAshElement.Spec) {
-		var newAshElementArgs = newAshElement.args && newAshElement.args[0] ? newAshElement.args[0] : null;
+		var newAshElementProps = newAshElement.args && newAshElement.args[0] ? newAshElement.args[0] : null;
+		var newAshElementPassedChildren = newAshElement.args && newAshElement.args[1] ? newAshElement.args[1] : null;
+		var oldAshElementPassedChildren = oldAshElement.args && oldAshElement.args[1] ? oldAshElement.args[1] : null;
 
-		if (oldAshElement.instance.__isDirty || oldAshElement.instance.shouldUpdate(newAshElementArgs)) {
+		if (oldAshElement.instance.__isDirty || oldAshElement.instance.shouldUpdate(newAshElementProps) || newAshElementPassedChildren !== oldAshElementPassedChildren) {
 			oldAshElement.args = newAshElement.args;
 			oldAshElement.isDirty = true;
 			oldAshElement.instance.__isDirty = false;
 
-			oldAshElement.instance.onBeforeReceiveProps(newAshElementArgs);
+			oldAshElement.instance.onBeforeReceiveProps(newAshElementProps);
 
-			oldAshElement.instance.props = newAshElementArgs;
+			oldAshElement.instance.props = newAshElementProps;
+			oldAshElement.instance.children = newAshElementPassedChildren;
 
 			// create child for the new element
 			var render = oldAshElement.instance.render(oldAshElement.instance.props, oldAshElement.instance.state);
@@ -80,12 +85,16 @@ function walkUpdateAshElementTree(oldAshElement, newAshElement, stream, isParent
 			walkUpdateAshElementTree(oldAshElement.children[0], oldAshElement.children[0], stream, false);
 		}
 	} else if (newAshElement.type === FUNCTION_ASH_ELEMENT && oldAshElement.type === FUNCTION_ASH_ELEMENT && newAshElement.spec === oldAshElement.spec) {
-		var _newAshElementArgs = newAshElement.args && newAshElement.args[0] ? newAshElement.args[0] : null;
-		var oldAshElementArgs = oldAshElement.args && oldAshElement.args[0] ? oldAshElement.args[0] : null;
+		var _newAshElementProps = newAshElement.args && newAshElement.args[0] ? newAshElement.args[0] : null;
+		var oldAshElementProps = oldAshElement.args && oldAshElement.args[0] ? oldAshElement.args[0] : null;
+		var _newAshElementPassedChildren = newAshElement.args && newAshElement.args[1] ? newAshElement.args[1] : null;
+		var _oldAshElementPassedChildren = oldAshElement.args && oldAshElement.args[1] ? oldAshElement.args[1] : null;
 
-		if (_newAshElementArgs !== oldAshElementArgs) {
+		if (_newAshElementProps === oldAshElementProps && _newAshElementPassedChildren === _oldAshElementPassedChildren) {
+			walkUpdateAshElementTree(oldAshElement.children[0], oldAshElement.children[0], stream, false);
+		} else {
 			// create child for the new element
-			var _render = oldAshElement.spec(newAshElement.args[0], oldAshElement.args[0]);
+			var _render = oldAshElement.spec(newAshElement.args[0], newAshElement.args[1]);
 
 			oldAshElement.args = newAshElement.args;
 			oldAshElement.isDirty = true;
@@ -106,8 +115,6 @@ function walkUpdateAshElementTree(oldAshElement, newAshElement, stream, isParent
 				(0, _unmountComponents2.default)(oldAshElement.children[0]);
 				oldAshElement.children.pop();
 			}
-		} else {
-			walkUpdateAshElementTree(oldAshElement.children[0], oldAshElement.children[0], stream, false);
 		}
 	} else if (newAshElement.type === ASH_NODE_ASH_ELEMENT && oldAshElement.type === ASH_NODE_ASH_ELEMENT) {
 		if (isParentComponentDirty) {
@@ -159,9 +166,9 @@ function walkUpdateAshElementTree(oldAshElement, newAshElement, stream, isParent
 /**
  * Updates dirty component elements in AshElement tree.
  *
- * @param {AshElement} componentAshElement
- * @param {ViewStream} stream
- * @returns {AshElement}
+ * @param {AshElement} componentAshElement Component Ash Element to update
+ * @param {ViewStream} stream ViewStream
+ * @returns {AshElement} Updated Component Ash Element
  */
 function updateAshElementTree(componentAshElement, stream) {
 	var newAshElement = undefined;

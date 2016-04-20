@@ -963,7 +963,7 @@
 	  * @returns {Component}
 	  */
 
-		function Component(props) {
+		function Component(props, children) {
 			var _this = this;
 
 			_classCallCheck(this, Component);
@@ -995,9 +995,13 @@
 				this.props = props;
 			}
 
+			if (children) {
+				this.children = children;
+			}
+
 			// references to the component streams
 			Object.getOwnPropertyNames(this.constructor).filter(function (value) {
-				return value !== 'caller' && value !== 'callee' && value !== 'arguments';
+				return value !== 'caller' && value !== 'callee' && value !== 'arguments' && value !== 'children';
 			}).forEach(function (value) {
 				if (_this.constructor[value] instanceof _Stream2.default && !_this[value]) {
 					_this[value] = _this.constructor[value];
@@ -1931,7 +1935,7 @@
 		value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* eslint-disable prefer-rest-params, complexity */
 
 	var _constants = __webpack_require__(3);
 
@@ -1990,10 +1994,10 @@
 			this.stream = null;
 
 			if (type !== COMPONENT_ASH_ELEMENT && type !== ASH_NODE_ASH_ELEMENT && type !== FUNCTION_ASH_ELEMENT) {
-				throw new Error(type + ' (type) must be "' + COMPONENT_ASH_ELEMENT + '" or "' + ASH_NODE_ASH_ELEMENT + '".');
+				throw new Error(type + ' (type) must be "' + COMPONENT_ASH_ELEMENT + '", "' + FUNCTION_ASH_ELEMENT + '" or "' + ASH_NODE_ASH_ELEMENT + '".');
 			}
 
-			if (!Spec) {
+			if (typeof Spec !== 'function') {
 				throw new Error(Spec + ' (Spec) must be a function.');
 			}
 
@@ -2003,7 +2007,16 @@
 				this.Spec = Spec;
 				this.isDirty = true;
 
-				if (arguments.length >= 3 && typeof arguments[2] !== 'undefined') {
+				/*if (arguments.length >= 3 && typeof arguments[2] !== 'undefined') {
+	   	this.args = [arguments[2]];
+	   } else {
+	   	this.args = null;
+	   }*/
+				if (arguments.length >= 4 && typeof arguments[2] !== 'undefined' && typeof arguments[3] !== 'undefined') {
+					// Two arguments for Component constructor: props and passed children
+					this.args = [arguments[2], arguments[3]];
+				} else if (arguments.length >= 3 && typeof arguments[2] !== 'undefined') {
+					// Only one argument for Component constructor: props
 					this.args = [arguments[2]];
 				} else {
 					this.args = null;
@@ -2028,7 +2041,16 @@
 				this.spec = Spec;
 				this.isDirty = true;
 
-				if (arguments.length >= 3 && typeof arguments[2] !== 'undefined') {
+				/*if (arguments.length >= 3 && typeof arguments[2] !== 'undefined') {
+	   	this.args = [arguments[2]];
+	   } else {
+	   	this.args = null;
+	   }*/
+				if (arguments.length >= 4 && typeof arguments[2] !== 'undefined' && typeof arguments[3] !== 'undefined') {
+					// Two arguments for Component function: props and passed children
+					this.args = [arguments[2], arguments[3]];
+				} else if (arguments.length >= 3 && typeof arguments[2] !== 'undefined') {
+					// Only one argument for Component function: props
 					this.args = [arguments[2]];
 				} else {
 					this.args = null;
@@ -2049,7 +2071,7 @@
 			value: function instantiate() {
 				if (this.type === COMPONENT_ASH_ELEMENT) {
 					if (this.args) {
-						this.instance = new this.Spec(this.args[0]);
+						this.instance = new this.Spec(this.args[0], this.args[1]);
 					} else {
 						this.instance = new this.Spec();
 					}
@@ -2078,25 +2100,51 @@
 	   * @param {...AshElement|string|number|Array<AshElement|string|number>} children
 	   * @returns {AshElement}
 	   */
+			/*static create(tagName, props/*, children...*/ /*) {
+	                                                  let children = [];
+	                                                  if (typeof tagName === 'function' && Component.isAncestorOf(tagName)) {
+	                                                  return new AshElement(COMPONENT_ASH_ELEMENT, tagName, arguments[1]);
+	                                                  } else if (typeof tagName === 'function') {
+	                                                  return new AshElement(FUNCTION_ASH_ELEMENT, tagName, arguments[1]);
+	                                                  } else if (typeof tagName === 'string' && !tagName.length) {
+	                                                  throw new Error(tagName + ' (tagName) must be non-empty string or Component class.');
+	                                                  }
+	                                                  // type check
+	                                                  if (tagName && arguments.length === 1) {
+	                                                  // return AshElement <tagName> with no props and no children
+	                                                  return new AshElement(ASH_NODE_ASH_ELEMENT, AshNode, tagName, null);
+	                                                  }
+	                                                  for (let i = 2; i < arguments.length; i++) {
+	                                                  if (typeof arguments[i] === 'string' || typeof arguments[i] === 'number') {
+	                                                  children.push(new AshElement(ASH_NODE_ASH_ELEMENT, AshNode, '' + arguments[i]));
+	                                                  } else if (isAshElement(arguments[i])) {
+	                                                  children.push(arguments[i]);
+	                                                  } else if (Array.isArray(arguments[i])) {
+	                                                  for (let j = 0; j < arguments[i].length; j++) {
+	                                                  if (typeof arguments[i][j] === 'string' || typeof arguments[i] === 'number') {
+	                                                  children.push(new AshElement(ASH_NODE_ASH_ELEMENT, AshNode, '' + arguments[i][j]));
+	                                                  } else if (isAshElement(arguments[i][j])) {
+	                                                  children.push(arguments[i][j]);
+	                                                  }
+	                                                  }
+	                                                  } else if (arguments[i] && typeof arguments[i].__iterator === 'function' || arguments[i] && typeof global.Symbol === 'function' && typeof arguments[i][global.Symbol.iterator]) {
+	                                                  let iteratorResult = iterate(arguments[i]);
+	                                                  for (let j = 0; j < iteratorResult.length; j++) {
+	                                                  if (typeof iteratorResult[j] === 'string' || typeof iteratorResult === 'number') {
+	                                                  children.push(new AshElement(ASH_NODE_ASH_ELEMENT, AshNode, '' + iteratorResult[j]));
+	                                                  } else if (isAshElement(iteratorResult[j])) {
+	                                                  children.push(iteratorResult[j]);
+	                                                  }
+	                                                  }
+	                                                  }
+	                                                  }
+	                                                  return new AshElement(ASH_NODE_ASH_ELEMENT, AshNode, tagName, props, children);
+	                                                  }*/
 
 		}], [{
 			key: 'create',
 			value: function create(tagName, props /*, children...*/) {
 				var children = [];
-
-				if ( /*typeof tagName !== 'string' && */typeof tagName === 'function' && _Component2.default.isAncestorOf(tagName)) {
-					return new AshElement(COMPONENT_ASH_ELEMENT, tagName, arguments[1]);
-				} else if (typeof tagName === 'function') {
-					return new AshElement(FUNCTION_ASH_ELEMENT, tagName, arguments[1]);
-				} else if (typeof tagName === 'string' && !tagName.length) {
-					throw new Error(tagName + ' (tagName) must be non-empty string or Component class.');
-				}
-
-				// type check
-				if (tagName && arguments.length === 1) {
-					// return AshElement <tagName> with no props and no children
-					return new AshElement(ASH_NODE_ASH_ELEMENT, _AshNode2.default, tagName, null);
-				}
 
 				for (var i = 2; i < arguments.length; i++) {
 					if (typeof arguments[i] === 'string' || typeof arguments[i] === 'number') {
@@ -2122,6 +2170,24 @@
 							}
 						}
 					}
+				}
+
+				if (!children.length) {
+					children = null;
+				}
+
+				if (typeof tagName === 'function' && _Component2.default.isAncestorOf(tagName)) {
+					return new AshElement(COMPONENT_ASH_ELEMENT, tagName, arguments[1], children);
+				} else if (typeof tagName === 'function') {
+					return new AshElement(FUNCTION_ASH_ELEMENT, tagName, arguments[1], children);
+				} else if (typeof tagName === 'string' && !tagName.length) {
+					throw new Error(tagName + ' (tagName) must be non-empty string or Component class.');
+				}
+
+				// type check
+				if (tagName && arguments.length === 1) {
+					// return AshElement <tagName> with no props and no children
+					return new AshElement(ASH_NODE_ASH_ELEMENT, _AshNode2.default, tagName, null);
 				}
 
 				return new AshElement(ASH_NODE_ASH_ELEMENT, _AshNode2.default, tagName, props, children);
@@ -2511,7 +2577,7 @@
 	 */
 	function walkCreateAshElementTree(ashElement, owner, index) {
 		if (!(0, _isComponentAshElement2.default)(owner)) {
-			throw new Error(owner + ' must be a Component type AshElement Object');
+			throw new Error(owner + ' (owner) must be a Component type AshElement Object.');
 		}
 
 		var newOwner = owner;
@@ -2532,7 +2598,7 @@
 			ashElement.instantiate();
 		} else if ((0, _isFunctionAshElement2.default)(ashElement)) {
 			// create child by running function
-			ashElement.children[0] = ashElement.spec(ashElement.args[0]);
+			ashElement.children[0] = ashElement.spec(ashElement.args[0], ashElement.args[1]);
 		}
 
 		for (var i = 0; i < ashElement.children.length; i++) {
@@ -2580,7 +2646,7 @@
 			ashElementTree.instantiate();
 		} else if ((0, _isFunctionAshElement2.default)(ashElementTree)) {
 			// create child by running function
-			ashElementTree.children[0] = ashElementTree.spec(ashElementTree.args[0], null);
+			ashElementTree.children[0] = ashElementTree.spec(ashElementTree.args[0], ashElementTree.args[1]);
 		}
 
 		for (var i = 0; i < ashElementTree.children.length; i++) {
@@ -2650,17 +2716,19 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var COMPONENT_ASH_ELEMENT = _constants2.default.COMPONENT_ASH_ELEMENT;
+	var COMPONENT_ASH_ELEMENT = _constants2.default.COMPONENT_ASH_ELEMENT; /* eslint-disable complexity */
+
 	var ASH_NODE_ASH_ELEMENT = _constants2.default.ASH_NODE_ASH_ELEMENT;
 	var FUNCTION_ASH_ELEMENT = _constants2.default.FUNCTION_ASH_ELEMENT;
 
 	/**
 	 * Walks AshElement tree for updating.
 	 *
-	 * @param {AshElement} oldAshElement
-	 * @param {AshElement} newAshElement
-	 * @param {Stream} stream
-	 * @param {boolean} isParentComponentDirty
+	 * @param {AshElement} oldAshElement Old Ash Element
+	 * @param {AshElement} newAshElement New Ash Element
+	 * @param {Stream} stream View Stream
+	 * @param {boolean} isParentComponentDirty `True` if parent Component is dirty, else `false`
+	 * @returns {undefined} Always returns `undefined`
 	 */
 	function walkUpdateAshElementTree(oldAshElement, newAshElement, stream, isParentComponentDirty) {
 		if (newAshElement === null && oldAshElement) {
@@ -2677,16 +2745,19 @@
 			// new element must be added as a child
 			newAshElement.parent.children[newAshElement.index] = newAshElement;
 		} else if (newAshElement.type === COMPONENT_ASH_ELEMENT && oldAshElement.type === COMPONENT_ASH_ELEMENT && newAshElement.Spec === oldAshElement.Spec) {
-			var newAshElementArgs = newAshElement.args && newAshElement.args[0] ? newAshElement.args[0] : null;
+			var newAshElementProps = newAshElement.args && newAshElement.args[0] ? newAshElement.args[0] : null;
+			var newAshElementPassedChildren = newAshElement.args && newAshElement.args[1] ? newAshElement.args[1] : null;
+			var oldAshElementPassedChildren = oldAshElement.args && oldAshElement.args[1] ? oldAshElement.args[1] : null;
 
-			if (oldAshElement.instance.__isDirty || oldAshElement.instance.shouldUpdate(newAshElementArgs)) {
+			if (oldAshElement.instance.__isDirty || oldAshElement.instance.shouldUpdate(newAshElementProps) || newAshElementPassedChildren !== oldAshElementPassedChildren) {
 				oldAshElement.args = newAshElement.args;
 				oldAshElement.isDirty = true;
 				oldAshElement.instance.__isDirty = false;
 
-				oldAshElement.instance.onBeforeReceiveProps(newAshElementArgs);
+				oldAshElement.instance.onBeforeReceiveProps(newAshElementProps);
 
-				oldAshElement.instance.props = newAshElementArgs;
+				oldAshElement.instance.props = newAshElementProps;
+				oldAshElement.instance.children = newAshElementPassedChildren;
 
 				// create child for the new element
 				var render = oldAshElement.instance.render(oldAshElement.instance.props, oldAshElement.instance.state);
@@ -2711,12 +2782,16 @@
 				walkUpdateAshElementTree(oldAshElement.children[0], oldAshElement.children[0], stream, false);
 			}
 		} else if (newAshElement.type === FUNCTION_ASH_ELEMENT && oldAshElement.type === FUNCTION_ASH_ELEMENT && newAshElement.spec === oldAshElement.spec) {
-			var _newAshElementArgs = newAshElement.args && newAshElement.args[0] ? newAshElement.args[0] : null;
-			var oldAshElementArgs = oldAshElement.args && oldAshElement.args[0] ? oldAshElement.args[0] : null;
+			var _newAshElementProps = newAshElement.args && newAshElement.args[0] ? newAshElement.args[0] : null;
+			var oldAshElementProps = oldAshElement.args && oldAshElement.args[0] ? oldAshElement.args[0] : null;
+			var _newAshElementPassedChildren = newAshElement.args && newAshElement.args[1] ? newAshElement.args[1] : null;
+			var _oldAshElementPassedChildren = oldAshElement.args && oldAshElement.args[1] ? oldAshElement.args[1] : null;
 
-			if (_newAshElementArgs !== oldAshElementArgs) {
+			if (_newAshElementProps === oldAshElementProps && _newAshElementPassedChildren === _oldAshElementPassedChildren) {
+				walkUpdateAshElementTree(oldAshElement.children[0], oldAshElement.children[0], stream, false);
+			} else {
 				// create child for the new element
-				var _render = oldAshElement.spec(newAshElement.args[0], oldAshElement.args[0]);
+				var _render = oldAshElement.spec(newAshElement.args[0], newAshElement.args[1]);
 
 				oldAshElement.args = newAshElement.args;
 				oldAshElement.isDirty = true;
@@ -2737,8 +2812,6 @@
 					(0, _unmountComponents2.default)(oldAshElement.children[0]);
 					oldAshElement.children.pop();
 				}
-			} else {
-				walkUpdateAshElementTree(oldAshElement.children[0], oldAshElement.children[0], stream, false);
 			}
 		} else if (newAshElement.type === ASH_NODE_ASH_ELEMENT && oldAshElement.type === ASH_NODE_ASH_ELEMENT) {
 			if (isParentComponentDirty) {
@@ -2790,9 +2863,9 @@
 	/**
 	 * Updates dirty component elements in AshElement tree.
 	 *
-	 * @param {AshElement} componentAshElement
-	 * @param {ViewStream} stream
-	 * @returns {AshElement}
+	 * @param {AshElement} componentAshElement Component Ash Element to update
+	 * @param {ViewStream} stream ViewStream
+	 * @returns {AshElement} Updated Component Ash Element
 	 */
 	function updateAshElementTree(componentAshElement, stream) {
 		var newAshElement = undefined;

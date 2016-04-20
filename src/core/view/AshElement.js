@@ -1,3 +1,5 @@
+/* eslint-disable prefer-rest-params, complexity */
+
 import constants from '../internals/constants';
 import AshNode from './AshNode';
 import isAshElement from '../internals/isAshElement';
@@ -33,10 +35,10 @@ export default class AshElement {
 	 */
 	constructor(type, Spec) {
 		if (type !== COMPONENT_ASH_ELEMENT && type !== ASH_NODE_ASH_ELEMENT && type !== FUNCTION_ASH_ELEMENT) {
-			throw new Error(`${type} (type) must be "${COMPONENT_ASH_ELEMENT}" or "${ASH_NODE_ASH_ELEMENT}".`);
+			throw new Error(`${type} (type) must be "${COMPONENT_ASH_ELEMENT}", "${FUNCTION_ASH_ELEMENT}" or "${ASH_NODE_ASH_ELEMENT}".`);
 		}
 
-		if (!Spec) {
+		if (typeof Spec !== 'function') {
 			throw new Error(`${Spec} (Spec) must be a function.`);
 		}
 
@@ -46,7 +48,16 @@ export default class AshElement {
 			this.Spec = Spec;
 			this.isDirty = true;
 
-			if (arguments.length >= 3 && typeof arguments[2] !== 'undefined') {
+			/*if (arguments.length >= 3 && typeof arguments[2] !== 'undefined') {
+				this.args = [arguments[2]];
+			} else {
+				this.args = null;
+			}*/
+			if (arguments.length >= 4 && typeof arguments[2] !== 'undefined' && typeof arguments[3] !== 'undefined') {
+				// Two arguments for Component constructor: props and passed children
+				this.args = [arguments[2], arguments[3]];
+			} else if (arguments.length >= 3 && typeof arguments[2] !== 'undefined') {
+				// Only one argument for Component constructor: props
 				this.args = [arguments[2]];
 			} else {
 				this.args = null;
@@ -71,7 +82,16 @@ export default class AshElement {
 			this.spec = Spec;
 			this.isDirty = true;
 
-			if (arguments.length >= 3 && typeof arguments[2] !== 'undefined') {
+			/*if (arguments.length >= 3 && typeof arguments[2] !== 'undefined') {
+				this.args = [arguments[2]];
+			} else {
+				this.args = null;
+			}*/
+			if (arguments.length >= 4 && typeof arguments[2] !== 'undefined' && typeof arguments[3] !== 'undefined') {
+				// Two arguments for Component function: props and passed children
+				this.args = [arguments[2], arguments[3]];
+			} else if (arguments.length >= 3 && typeof arguments[2] !== 'undefined') {
+				// Only one argument for Component function: props
 				this.args = [arguments[2]];
 			} else {
 				this.args = null;
@@ -89,7 +109,7 @@ export default class AshElement {
 	instantiate() {
 		if (this.type === COMPONENT_ASH_ELEMENT) {
 			if (this.args) {
-				this.instance = new this.Spec(this.args[0]);
+				this.instance = new this.Spec(this.args[0], this.args[1]);
 			} else {
 				this.instance = new this.Spec();
 			}
@@ -118,10 +138,10 @@ export default class AshElement {
 	 * @param {...AshElement|string|number|Array<AshElement|string|number>} children
 	 * @returns {AshElement}
 	 */
-	static create(tagName, props/*, children...*/) {
+	/*static create(tagName, props/*, children...*//*) {
 		let children = [];
 
-		if (/*typeof tagName !== 'string' && */typeof tagName === 'function' && Component.isAncestorOf(tagName)) {
+		if (typeof tagName === 'function' && Component.isAncestorOf(tagName)) {
 			return new AshElement(COMPONENT_ASH_ELEMENT, tagName, arguments[1]);
 		} else if (typeof tagName === 'function') {
 			return new AshElement(FUNCTION_ASH_ELEMENT, tagName, arguments[1]);
@@ -159,6 +179,55 @@ export default class AshElement {
 					}
 				}
 			}
+		}
+
+		return new AshElement(ASH_NODE_ASH_ELEMENT, AshNode, tagName, props, children);
+	}*/
+	static create(tagName, props/*, children...*/) {
+		let children = [];
+
+		for (let i = 2; i < arguments.length; i++) {
+			if (typeof arguments[i] === 'string' || typeof arguments[i] === 'number') {
+				children.push(new AshElement(ASH_NODE_ASH_ELEMENT, AshNode, `${arguments[i]}`));
+			} else if (isAshElement(arguments[i])) {
+				children.push(arguments[i]);
+			} else if (Array.isArray(arguments[i])) {
+				for (let j = 0; j < arguments[i].length; j++) {
+					if (typeof arguments[i][j] === 'string' || typeof arguments[i] === 'number') {
+						children.push(new AshElement(ASH_NODE_ASH_ELEMENT, AshNode, `${arguments[i][j]}`));
+					} else if (isAshElement(arguments[i][j])) {
+						children.push(arguments[i][j]);
+					}
+				}
+			} else if (arguments[i] && typeof arguments[i].__iterator === 'function' || arguments[i] && typeof global.Symbol === 'function' && typeof arguments[i][global.Symbol.iterator]) {
+				let iteratorResult = iterate(arguments[i]);
+
+				for (let j = 0; j < iteratorResult.length; j++) {
+					if (typeof iteratorResult[j] === 'string' || typeof iteratorResult === 'number') {
+						children.push(new AshElement(ASH_NODE_ASH_ELEMENT, AshNode, `${iteratorResult[j]}`));
+					} else if (isAshElement(iteratorResult[j])) {
+						children.push(iteratorResult[j]);
+					}
+				}
+			}
+		}
+
+		if (!children.length) {
+			children = null;
+		}
+
+		if (typeof tagName === 'function' && Component.isAncestorOf(tagName)) {
+			return new AshElement(COMPONENT_ASH_ELEMENT, tagName, arguments[1], children);
+		} else if (typeof tagName === 'function') {
+			return new AshElement(FUNCTION_ASH_ELEMENT, tagName, arguments[1], children);
+		} else if (typeof tagName === 'string' && !tagName.length) {
+			throw new Error(`${tagName} (tagName) must be non-empty string or Component class.`);
+		}
+
+		// type check
+		if (tagName && arguments.length === 1) {
+			// return AshElement <tagName> with no props and no children
+			return new AshElement(ASH_NODE_ASH_ELEMENT, AshNode, tagName, null);
 		}
 
 		return new AshElement(ASH_NODE_ASH_ELEMENT, AshNode, tagName, props, children);

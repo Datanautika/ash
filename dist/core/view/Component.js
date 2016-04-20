@@ -75,7 +75,7 @@ var Component = function () {
   * @returns {Component}
   */
 
-	function Component(props) {
+	function Component(props, children) {
 		var _this = this;
 
 		_classCallCheck(this, Component);
@@ -107,9 +107,13 @@ var Component = function () {
 			this.props = props;
 		}
 
+		if (children) {
+			this.children = children;
+		}
+
 		// references to the component streams
 		Object.getOwnPropertyNames(this.constructor).filter(function (value) {
-			return value !== 'caller' && value !== 'callee' && value !== 'arguments';
+			return value !== 'caller' && value !== 'callee' && value !== 'arguments' && value !== 'children';
 		}).forEach(function (value) {
 			if (_this.constructor[value] instanceof _Stream2.default && !_this[value]) {
 				_this[value] = _this.constructor[value];

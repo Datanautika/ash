@@ -48,7 +48,7 @@ export default class Component {
 	 * @param {Object} props
 	 * @returns {Component}
 	 */
-	constructor(props) {
+	constructor(props, children) {
 		this.update = ::this.update;
 
 		// autobind methods
@@ -69,8 +69,12 @@ export default class Component {
 			this.props = props;
 		}
 
+		if (children) {
+			this.children = children;
+		}
+
 		// references to the component streams
-		Object.getOwnPropertyNames(this.constructor).filter((value) => value !== 'caller' && value !== 'callee' && value !== 'arguments').forEach((value) => {
+		Object.getOwnPropertyNames(this.constructor).filter((value) => value !== 'caller' && value !== 'callee' && value !== 'arguments' && value !== 'children').forEach((value) => {
 			if (this.constructor[value] instanceof Stream && !this[value]) {
 				this[value] = this.constructor[value];
 			}

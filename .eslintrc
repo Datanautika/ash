@@ -62,7 +62,7 @@
 		"accessor-pairs": 0, // enforces getter/setter pairs in objects
 		"array-callback-return": 1, // enforces return statements in callbacks of array's methods
 		"block-scoped-var": 1, // treat var statements as if they were block scoped
-		"complexity": [1, 15], // specify the maximum cyclomatic complexity allowed in a program
+		"complexity": [1, 20], // specify the maximum cyclomatic complexity allowed in a program
 		"consistent-return": 1, // require return statements to either always or never specify values
 		"curly": [1, "all"], // specify curly brace conventions for all control statements
 		"default-case": 0, // require default case in switch statements
@@ -92,7 +92,7 @@
 		"no-labels": 2, // disallow use of labeled statements
 		"no-lone-blocks": 1, // disallow unnecessary nested blocks
 		"no-loop-func": 2, // disallow creation of functions within loops
-		"no-magic-numbers": [1, {"ignore": [-10, -9.5, -9, -8.5, -8, -7.5, -7, -6.5, -6, -5.5, -5, -4.5, -4, -3.75, -3.5, -3.25, -3, -2.75, -2.5, -2.25, -2, -1.9375, -1.875, -1.8125, -1.75, -1.6875, -1.625, -1.5625, -1.5, -1.4375, -1.375, -1.3125, -1.25, -1.1875, -1.125, -1.0625, -1, -0.9375, -0.875, -0.8125, -0.75, -0.6875, -0.625, -0.5625, -0.5, -0.4375, -0.375, -0.3125, -0.25, -0.1875, -0.125, -0.0625, 0, 0.05, 0.0625, 0.1, 0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5, 0.5625, 0.625, 0.6875, 0.75, 0.8125, 0.875, 0.9, 0.9375, 0.95, 1, 1.0625, 1.125, 1.1875, 1.25, 1.3125, 1.375, 1.4375, 1.5, 1.5625, 1.625, 1.6875, 1.75, 1.8125, 1.875, 1.9375, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 255], "ignoreArrayIndexes": true}], // disallow the use of magic numbers
+		"no-magic-numbers": [1, {"ignore": [-10, -9.5, -9, -8.5, -8, -7.5, -7, -6.5, -6, -5.5, -5, -4.5, -4, -3.75, -3.5, -3.25, -3, -2.75, -2.5, -2.25, -2, -1.9375, -1.875, -1.8125, -1.75, -1.6875, -1.625, -1.5625, -1.5, -1.4375, -1.375, -1.3125, -1.25, -1.1875, -1.125, -1.0625, -1, -0.9375, -0.875, -0.8125, -0.75, -0.6875, -0.625, -0.5625, -0.5, -0.4375, -0.375, -0.3125, -0.25, -0.1875, -0.125, -0.0625, 0, 0.025, 0.05, 0.0625, 0.1, 0.125, 0.1875, 0.25, 0.3125, 0.375, 0.4375, 0.5, 0.5625, 0.625, 0.6875, 0.75, 0.8125, 0.875, 0.9, 0.9375, 0.95, 0.975, 1, 1.0625, 1.125, 1.1875, 1.25, 1.3125, 1.375, 1.4375, 1.5, 1.5625, 1.625, 1.6875, 1.75, 1.8125, 1.875, 1.9375, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 255], "ignoreArrayIndexes": true}], // disallow the use of magic numbers
 		"no-multi-spaces": 1, // disallow use of multiple spaces
 		"no-multi-str": 2, // disallow use of multiline strings
 		"no-native-reassign": 2, // disallow reassignments of native objects
@@ -254,44 +254,44 @@
 		"babel/arrow-parens": [1, "always"],
 		"babel/no-await-in-loop": 1,
 
-		"react/display-name": 0, // Prevent missing displayName in a React component definition
-		"react/forbid-prop-types": 0, // Forbid certain propTypes
-		"react/no-danger": 0, // Prevent usage of dangerous JSX properties
-		"react/no-deprecated": 0, // Prevent usage of deprecated methods
-		"react/no-did-mount-set-state": 0, // Prevent usage of setState in componentDidMount
-		"react/no-did-update-set-state": 0, // Prevent usage of setState in componentDidUpdate
-		"react/no-direct-mutation-state": 0, // Prevent direct mutation of this.state
-		"react/no-is-mounted": 0, // Prevent usage of isMounted
-		"react/no-multi-comp": 0, // Prevent multiple component definition per file
-		"react/no-set-state": 0, // Prevent usage of setState
-		"react/no-string-refs": 0, // Prevent using string references in ref attribute.
-		"react/no-unknown-property": 0, // Prevent usage of unknown DOM property (fixable)
-		"react/prefer-es6-class": 0, // Enforce ES5 or ES6 class for React Components
-		"react/prop-types": 0, // Prevent missing props validation in a React component definition
-		"react/react-in-jsx-scope": 0, // Prevent missing React when using JSX
-		"react/require-extension": 0, // Restrict file extensions that may be required
-		"react/self-closing-comp": 0, // Prevent extra closing tags for components without children
-		"react/sort-comp": 0, // Enforce component methods order
-		"react/wrap-multilines": 0, // Prevent missing parentheses around multilines JSX (fixable)
+    "react/display-name": 0, // Prevent missing displayName in a React component definition
+    "react/forbid-prop-types": 0, // Forbid certain propTypes
+    "react/no-danger": 0, // Prevent usage of dangerous JSX properties
+    "react/no-deprecated": 0, // Prevent usage of deprecated methods
+    "react/no-did-mount-set-state": 0, // Prevent usage of setState in componentDidMount
+    "react/no-did-update-set-state": 0, // Prevent usage of setState in componentDidUpdate
+    "react/no-direct-mutation-state": 0, // Prevent direct mutation of this.state
+    "react/no-is-mounted": 0, // Prevent usage of isMounted
+    "react/no-multi-comp": 0, // Prevent multiple component definition per file
+    "react/no-set-state": 0, // Prevent usage of setState
+    "react/no-string-refs": 0, // Prevent using string references in ref attribute.
+    "react/no-unknown-property": 0, // Prevent usage of unknown DOM property (fixable)
+    "react/prefer-es6-class": 0, // Enforce ES5 or ES6 class for React Components
+    "react/prop-types": 0, // Prevent missing props validation in a React component definition
+    "react/react-in-jsx-scope": 0, // Prevent missing React when using JSX
+    "react/require-extension": 0, // Restrict file extensions that may be required
+    "react/self-closing-comp": 0, // Prevent extra closing tags for components without children
+    "react/sort-comp": 0, // Enforce component methods order
+    "react/wrap-multilines": 0, // Prevent missing parentheses around multilines JSX (fixable)
 
-		"react/jsx-boolean-value": [1, "always"], // Enforce boolean attributes notation in JSX (fixable)
-		"react/jsx-closing-bracket-location": 0, // Validate closing bracket location in JSX
-		"react/jsx-curly-spacing": [1, "never"], // Enforce or disallow spaces inside of curly braces in JSX attributes (fixable)
-		// "react/jsx-equals-spacing": [1, "never"], // Enforce or disallow spaces around equal signs in JSX attributes
-		"react/jsx-handler-names": 0, // Enforce event handler naming conventions in JSX
-		"react/jsx-indent-props": 0, // Validate props indentation in JSX
-		// "react/jsx-indent": [1, "tab"], // Validate JSX indentation
-		// "react/jsx-key": 1, // Validate JSX has key prop when in array or iterator
-		"react/jsx-max-props-per-line": 0, // Limit maximum of props on a single line in JSX
-		// "react/jsx-no-bind": [1, {"ignoreRefs": false, "allowArrowFunctions": false, "allowBind": false}], // Prevent usage of .bind() and arrow functions in JSX props
-		"react/jsx-no-duplicate-props": 1, // Prevent duplicate props in JSX
-		"react/jsx-no-literals": 0, // Prevent usage of unwrapped JSX strings
-		"react/jsx-no-undef": 2, // Disallow undeclared variables in JSX
-		// "react/jsx-pascal-case": 1, // Enforce PascalCase for user-defined JSX components
-		"react/jsx-sort-prop-types": 0, // Enforce propTypes declarations alphabetical sorting
-		"react/jsx-sort-props": 0, // Enforce props alphabetical sorting
-		// "react/jsx-space-before-closing": [1, "always"], // Validate spacing before closing bracket in JSX (fixable)
-		"react/jsx-uses-react": 0, // Prevent React to be incorrectly marked as unused
-		"react/jsx-uses-vars": 1, // Prevent variables used in JSX to be incorrectly marked as unused
+    "react/jsx-boolean-value": [1, "always"], // Enforce boolean attributes notation in JSX (fixable)
+    "react/jsx-closing-bracket-location": 0, // Validate closing bracket location in JSX
+    "react/jsx-curly-spacing": [1, "never"], // Enforce or disallow spaces inside of curly braces in JSX attributes (fixable)
+    // "react/jsx-equals-spacing": [1, "never"], // Enforce or disallow spaces around equal signs in JSX attributes
+    "react/jsx-handler-names": 0, // Enforce event handler naming conventions in JSX
+    "react/jsx-indent-props": 0, // Validate props indentation in JSX
+    // "react/jsx-indent": [1, "tab"], // Validate JSX indentation
+    // "react/jsx-key": 1, // Validate JSX has key prop when in array or iterator
+    "react/jsx-max-props-per-line": 0, // Limit maximum of props on a single line in JSX
+    // "react/jsx-no-bind": [1, {"ignoreRefs": false, "allowArrowFunctions": false, "allowBind": false}], // Prevent usage of .bind() and arrow functions in JSX props
+    "react/jsx-no-duplicate-props": 1, // Prevent duplicate props in JSX
+    "react/jsx-no-literals": 0, // Prevent usage of unwrapped JSX strings
+    "react/jsx-no-undef": 2, // Disallow undeclared variables in JSX
+    // "react/jsx-pascal-case": 1, // Enforce PascalCase for user-defined JSX components
+    "react/jsx-sort-prop-types": 0, // Enforce propTypes declarations alphabetical sorting
+    "react/jsx-sort-props": 0, // Enforce props alphabetical sorting
+    // "react/jsx-space-before-closing": [1, "always"], // Validate spacing before closing bracket in JSX (fixable)
+    "react/jsx-uses-react": 0, // Prevent React to be incorrectly marked as unused
+    "react/jsx-uses-vars": 1, // Prevent variables used in JSX to be incorrectly marked as unused
 	}
 }
