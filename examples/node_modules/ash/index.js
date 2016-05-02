@@ -8,11 +8,9 @@ var _support = require('./core/support');
 
 var _support2 = _interopRequireDefault(_support);
 
-var _ash = require('./core/styles/ash.css');
+var _ui = require('./ui');
 
-var _ash2 = _interopRequireDefault(_ash);
-
-var _config = require('./core/config');
+var _ui2 = _interopRequireDefault(_ui);
 
 var _Component = require('./core/view/Component');
 
@@ -69,19 +67,11 @@ var ash = {
 	support: _support2.default,
 
 	/**
-  * Class names for internal CSS.
+  * UI object.
   *
-  * @type {object}
+  * @link  {ui}
   */
-	styles: _ash2.default,
-
-	get config() {
-		return (0, _config.getConfig)();
-	},
-
-	set config(configObject) {
-		(0, _config.setConfig)(configObject);
-	},
+	ui: _ui2.default,
 
 	Component: _Component2.default,
 	ViewStream: _ViewStream2.default,

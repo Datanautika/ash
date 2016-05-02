@@ -142,7 +142,6 @@ var router = new _Router2.default();
 
 app.use((0, _koaRouter2.default)(router, function () {
 	var ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee2(context, next) {
-		var viewStream, componentHtml;
 		return _regenerator2.default.wrap(function _callee2$(_context2) {
 			while (1) {
 				switch (_context2.prev = _context2.next) {
@@ -163,19 +162,16 @@ app.use((0, _koaRouter2.default)(router, function () {
 						return _context2.abrupt('return');
 
 					case 4:
-						viewStream = new _ash2.default.ViewStream(_ash2.default.createElement(_App2.default, null));
+
+						// let viewStream = new ash.ViewStream(<App />);
+						// let componentHtml = await ash.stringifyViewStream(viewStream);
+
+						context.body = _fs2.default.readFileSync(_path2.default.join(ROOT_PATH, 'assets/index.html'), 'utf8') /*.replace('%CONTENT%', componentHtml)*/;
+
 						_context2.next = 7;
-						return _ash2.default.stringifyViewStream(viewStream);
-
-					case 7:
-						componentHtml = _context2.sent;
-
-						context.body = _fs2.default.readFileSync(_path2.default.join(ROOT_PATH, 'assets/index.html'), 'utf8').replace('%CONTENT%', componentHtml);
-
-						_context2.next = 11;
 						return next();
 
-					case 11:
+					case 7:
 					case 'end':
 						return _context2.stop();
 				}

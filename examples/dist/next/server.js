@@ -123,10 +123,10 @@ app.use((0, _koaRouter2.default)(router, (() => {
 				return;
 			}
 
-		let viewStream = new _ash2.default.ViewStream(_ash2.default.createElement(_App2.default, null));
-		let componentHtml = yield _ash2.default.stringifyViewStream(viewStream);
+		// let viewStream = new ash.ViewStream(<App />);
+		// let componentHtml = await ash.stringifyViewStream(viewStream);
 
-		context.body = _fs2.default.readFileSync(_path2.default.join(ROOT_PATH, 'assets/index.html'), 'utf8').replace('%CONTENT%', componentHtml);
+		context.body = _fs2.default.readFileSync(_path2.default.join(ROOT_PATH, 'assets/index.html'), 'utf8') /*.replace('%CONTENT%', componentHtml)*/;
 
 		yield next();
 	});

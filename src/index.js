@@ -1,6 +1,5 @@
 import support from './core/support';
-import styles from './core/styles/ash.css';
-import {setConfig, getConfig} from './core/config';
+import ui from './ui';
 import Component from './core/view/Component';
 import AshElement from './core/view/AshElement';
 import ViewStream from './core/view/ViewStream';
@@ -32,19 +31,11 @@ let ash = {
 	support,
 
 	/**
-	 * Class names for internal CSS.
+	 * UI object.
 	 *
-	 * @type {object}
+	 * @link  {ui}
 	 */
-	styles,
-
-	get config() {
-		return getConfig();
-	},
-
-	set config(configObject) {
-		setConfig(configObject);
-	},
+	ui,
 
 	Component,
 	ViewStream,

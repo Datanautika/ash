@@ -1,0 +1,6 @@
+.default {
+	composes: default from './Input.css';
+
+	height: auto;
+	min-height: 2bh;
+}

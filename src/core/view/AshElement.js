@@ -220,7 +220,7 @@ export default class AshElement {
 			return new AshElement(COMPONENT_ASH_ELEMENT, tagName, arguments[1], children);
 		} else if (typeof tagName === 'function') {
 			return new AshElement(FUNCTION_ASH_ELEMENT, tagName, arguments[1], children);
-		} else if (typeof tagName === 'string' && !tagName.length) {
+		} else if (!tagName) {
 			throw new Error(`${tagName} (tagName) must be non-empty string or Component class.`);
 		}
 
