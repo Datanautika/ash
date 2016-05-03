@@ -10,10 +10,7 @@
 		"transform-object-rest-spread",
 
 		"transform-es2015-classes",
-		"transform-es2015-destructuring",
-		"transform-es2015-parameters",
 		"transform-es2015-modules-commonjs",
-		"transform-es2015-function-name",
 
 		"syntax-flow",
 		"syntax-jsx",

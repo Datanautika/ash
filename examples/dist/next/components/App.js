@@ -58,14 +58,10 @@ let textareaValidator = value => value.length >= 5 ? value : false;
 let App = function (_ash$Component) {
 	_inherits(App, _ash$Component);
 
-	function App() {
+	function App(...args) {
 		var _temp, _this, _ret;
 
 		_classCallCheck(this, App);
-
-		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-			args[_key] = arguments[_key];
-		}
 
 		return _ret = (_temp = (_this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, ...args)), _this), _this.state = {
 			items: [],
@@ -79,17 +75,9 @@ let App = function (_ash$Component) {
 	_createClass(App, [{
 		key: 'render',
 		value: function render() {
-			var _pageStream$get = _pageStream2.default.get();
-
-			let page = _pageStream$get.current;
-
-			var _languageStream$get = _languageStream2.default.get();
-
-			let language = _languageStream$get.current;
-
-			var _storyStream$get = _storyStream2.default.get();
-
-			let story = _storyStream$get.current;
+			let { current: page } = _pageStream2.default.get();
+			let { current: language } = _languageStream2.default.get();
+			let { current: story } = _storyStream2.default.get();
 
 			let items = null;
 

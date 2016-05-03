@@ -13,6 +13,9 @@
   "license": "MIT",
   "repository": "datanautika/ash",
   "main": "dist/index.js",
+  "engines" : {
+    "node" : "6.0.0"
+  },
   "scripts": {
     "build": "gulp build --production",
     "watch": "gulp",

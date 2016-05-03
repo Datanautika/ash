@@ -21,14 +21,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 let TestApp1 = function (_ash$Component) {
 	_inherits(TestApp1, _ash$Component);
 
-	function TestApp1() {
+	function TestApp1(...args) {
 		var _temp, _this, _ret;
 
 		_classCallCheck(this, TestApp1);
-
-		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-			args[_key] = arguments[_key];
-		}
 
 		return _ret = (_temp = (_this = _possibleConstructorReturn(this, Object.getPrototypeOf(TestApp1).call(this, ...args)), _this), _this.state = {
 			count: 0

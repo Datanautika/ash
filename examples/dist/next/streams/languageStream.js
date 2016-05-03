@@ -37,10 +37,7 @@ let languageStram = new _ash2.default.Stream({
 
 languageStram.combine((dependency, self) => {
 	let value = self.get();
-
-	var _dependency$get = dependency.get();
-
-	let language = _dependency$get.language;
+	let { language } = dependency.get();
 
 	if (language !== value.current && (language === CZ || language === EN)) {
 		let newValue = {
