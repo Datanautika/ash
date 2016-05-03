@@ -21,10 +21,7 @@ let pageStream = new _ash2.default.Stream({
 
 pageStream.combine((dependency, self) => {
 	let value = self.get();
-
-	var _dependency$get = dependency.get();
-
-	let page = _dependency$get.page;
+	let { page } = dependency.get();
 
 	if (page !== value.current) {
 		let newValue = {

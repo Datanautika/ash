@@ -65,10 +65,10 @@ app.use(koaRouter(router, async (context, next) => {
 		return;
 	}
 
-	let viewStream = new ash.ViewStream(<App />);
-	let componentHtml = await ash.stringifyViewStream(viewStream);
+	// let viewStream = new ash.ViewStream(<App />);
+	// let componentHtml = await ash.stringifyViewStream(viewStream);
 
-	context.body = fs.readFileSync(path.join(ROOT_PATH, 'assets/index.html'), 'utf8').replace('%CONTENT%', componentHtml);
+	context.body = fs.readFileSync(path.join(ROOT_PATH, 'assets/index.html'), 'utf8')/*.replace('%CONTENT%', componentHtml)*/;
 
 	await next();
 }));

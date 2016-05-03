@@ -19,9 +19,7 @@ const CZ = _constants2.default.CZ;
 
 let router = new _Router2.default();
 let routeStream = router.add('(:language)(/:page)(/:story)(/)').map(value => {
-	let language = value.language;
-	let page = value.page;
-	let story = value.story;
+	let { language, page, story } = value;
 
 	if (language !== CZ && language !== EN) {
 		story = page;

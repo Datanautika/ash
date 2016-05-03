@@ -21,10 +21,7 @@ let storyStream = new _ash2.default.Stream({
 
 storyStream.combine((dependency, self) => {
 	let value = self.get();
-
-	var _dependency$get = dependency.get();
-
-	let story = _dependency$get.story;
+	let { story } = dependency.get();
 
 	if (story !== value.current) {
 		let newValue = {

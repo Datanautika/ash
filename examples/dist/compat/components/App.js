@@ -28,10 +28,6 @@ var _ash = require('ash');
 
 var _ash2 = _interopRequireDefault(_ash);
 
-var _Router = require('ash/Router');
-
-var _Router2 = _interopRequireDefault(_Router);
-
 var _App = require('./App.css');
 
 var _App2 = _interopRequireDefault(_App);
@@ -56,8 +52,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var EN = _constants2.default.EN;
 var CZ = _constants2.default.CZ;
+var EMAIL_REGEX = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 
-var router = new _Router2.default();
+var textInputValidator = function textInputValidator(value) {
+	return value === 'ash' ? value : false;
+};
+var emailValidator = function emailValidator(value) {
+	if (!value || typeof value !== 'string') {
+		return false;
+	}
+
+	var email = value.trim();
+	var result = EMAIL_REGEX.test(email);
+
+	return result ? email : false;
+};
+var textareaValidator = function textareaValidator(value) {
+	return value.length >= 5 ? value : false;
+};
 
 var App = function (_ash$Component) {
 	(0, _inherits3.default)(App, _ash$Component);
@@ -75,7 +87,10 @@ var App = function (_ash$Component) {
 
 		return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_Object$getPrototypeO = (0, _getPrototypeOf2.default)(App)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
 			items: [],
-			isColored: false
+			isColored: false,
+			isTextInputValid: true,
+			isEmailInputValid: true,
+			isTextareaValid: true
 		}, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 	}
 
@@ -114,54 +129,134 @@ var App = function (_ash$Component) {
 				'div',
 				{ 'class': _App2.default.root },
 				_ash2.default.createElement(
-					'p',
+					'section',
 					null,
-					'Language: ' + language
-				),
-				_ash2.default.createElement(
-					'p',
-					null,
-					'Page: ' + page
-				),
-				_ash2.default.createElement(
-					'p',
-					null,
-					'Story: ' + story
-				),
-				_ash2.default.createElement(
-					'p',
-					{ events: { click: this.handleClick } },
 					_ash2.default.createElement(
-						'a',
-						{ href: '/' + CZ + '/foo/bar' },
-						'CZ foo/bar'
+						'h1',
+						{ 'class': _ash2.default.ui.styles.sectionLevel1Heading },
+						'Form'
 					),
 					_ash2.default.createElement(
-						'a',
-						{ href: '/' + EN + '/foo/bar' },
-						'EN foo/bar'
+						_ash2.default.ui.Form,
+						{ 'class': _App2.default.form },
+						_ash2.default.createElement(
+							_ash2.default.ui.FormRow,
+							{ id: 'foo', label: 'Foo text input', hint: 'Type \'ash\'', showError: !this.state.isTextInputValid, errorMessage: "You have to type 'ash'!" },
+							_ash2.default.createElement(_ash2.default.ui.Input, { id: 'foo', validator: textInputValidator, isValid: this.state.isTextInputValid, handleChange: this.handleTextInputChange })
+						),
+						_ash2.default.createElement(
+							_ash2.default.ui.FormRow,
+							{ id: 'foo', label: 'Foo email input', hint: 'Type any email', showError: !this.state.isEmailInputValid, errorMessage: "That's not a valid mail address!" },
+							_ash2.default.createElement(_ash2.default.ui.Input, { id: 'foo', type: 'email', validator: emailValidator, isValid: this.state.isEmailInputValid, handleChange: this.handleEmailInputChange })
+						),
+						_ash2.default.createElement(
+							_ash2.default.ui.FormRow,
+							{ id: 'foo', label: 'Textarea', hint: 'Write something longer than 4 characters', showError: !this.state.isTextareaValid, errorMessage: "Write something longer!" },
+							_ash2.default.createElement(_ash2.default.ui.Textarea, { id: 'foo', rows: 3, validator: textareaValidator, isValid: this.state.isTextareaValid, handleChange: this.handleTextareaChange })
+						)
 					)
 				),
 				_ash2.default.createElement(
-					'p',
+					'section',
 					null,
 					_ash2.default.createElement(
-						'a',
-						{ href: '#', events: { click: this.handleToggleGrid } },
-						'Toggle grid'
+						'h1',
+						{ 'class': _ash2.default.ui.styles.sectionLevel1Heading },
+						'Buttons'
 					),
 					_ash2.default.createElement(
-						'a',
-						{ href: '#', events: { click: this.handleAddEvent } },
-						'Add items'
+						'h2',
+						{ 'class': _ash2.default.ui.styles.sectionLevel2Heading },
+						'Normal size'
 					),
 					_ash2.default.createElement(
-						'a',
-						{ href: '#', events: { click: this.handleChangeColor } },
-						'Change color'
+						_ash2.default.ui.ButtonGroup,
+						null,
+						_ash2.default.createElement(_ash2.default.ui.Button, { label: 'Default button' }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { label: 'Default button (disabled)', isDisabled: true }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { label: 'Default button', badge: 'Badge!' }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { label: 'Default button (disabled)', badge: 'Badge!', isDisabled: true }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'flat', label: 'Flat button' }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'flat', label: 'Flat button (disabled)', isDisabled: true }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'flat', label: 'Flat button', badge: 'Badge!' }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'flat', label: 'Flat button (disabled)', badge: 'Badge!', isDisabled: true }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'invisible', label: 'Invisible button' }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'invisible', label: 'Invisible button (disabled)', isDisabled: true }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'invisible', label: 'Invisible button', badge: 'Badge!' }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'invisible', label: 'Invisible button (disabled)', badge: 'Badge!', isDisabled: true }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { label: 'Default submit button', isSubmit: true })
+					),
+					_ash2.default.createElement(_ash2.default.ui.ButtonGroup, null),
+					_ash2.default.createElement(
+						'h2',
+						{ 'class': _ash2.default.ui.styles.sectionLevel2Heading },
+						'Large size'
+					),
+					_ash2.default.createElement(
+						_ash2.default.ui.ButtonGroup,
+						null,
+						_ash2.default.createElement(_ash2.default.ui.Button, { label: 'Default button', isLarge: true }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { label: 'Default button (disabled)', isDisabled: true, isLarge: true }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { label: 'Default button', badge: 'Badge!', isLarge: true }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { label: 'Default button (disabled)', badge: 'Badge!', isDisabled: true, isLarge: true }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'flat', label: 'Flat button', isLarge: true }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'flat', label: 'Flat button (disabled)', isDisabled: true, isLarge: true }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'invisible', label: 'Invisible button', isLarge: true }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'invisible', label: 'Invisible button (disabled)', isDisabled: true, isLarge: true }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { label: 'Default submit button', isSubmit: true, isLarge: true })
 					)
 				),
-				items
+				_ash2.default.createElement(
+					'section',
+					null,
+					_ash2.default.createElement(
+						'h1',
+						{ 'class': _ash2.default.ui.styles.sectionLevel1Heading },
+						'Router'
+					),
+					_ash2.default.createElement(
+						'p',
+						null,
+						'Language: ' + language
+					),
+					_ash2.default.createElement(
+						'p',
+						null,
+						'Page: ' + page
+					),
+					_ash2.default.createElement(
+						'p',
+						null,
+						'Story: ' + story
+					),
+					_ash2.default.createElement(
+						_ash2.default.ui.ButtonGroup,
+						null,
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'invisible', label: 'CZ foo/bar', link: '/' + CZ + '/foo/bar' }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'invisible', label: 'EN foo/bar', link: '/' + EN + '/foo/bar' })
+					)
+				),
+				_ash2.default.createElement(
+					'section',
+					null,
+					_ash2.default.createElement(
+						'h1',
+						{ 'class': _ash2.default.ui.styles.sectionLevel1Heading },
+						'Perf'
+					),
+					_ash2.default.createElement(
+						_ash2.default.ui.ButtonGroup,
+						null,
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'flat', label: 'Toggle grid', handleClick: this.handleToggleGrid }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'flat', label: 'Add items', handleClick: this.handleAddEvent }),
+						_ash2.default.createElement(_ash2.default.ui.Button, { type: 'flat', label: 'Change color', handleClick: this.handleChangeColor })
+					),
+					_ash2.default.createElement(
+						'div',
+						null,
+						items
+					)
+				)
 			);
 		}
 	}, {
@@ -172,41 +267,62 @@ var App = function (_ash$Component) {
 			_languageStream2.default.on(this.update);
 		}
 	}, {
-		key: 'handleClick',
-		value: function handleClick(event) {
-			event.preventDefault();
-
-			router.navigate(event.target.getAttribute('href'));
-		}
-	}, {
 		key: 'handleAddEvent',
-		value: function handleAddEvent(event) {
-			event.preventDefault();
-
+		value: function handleAddEvent() {
 			for (var i = 0; i < 500; i++) {
-				this.state.items.push([Math.random() * 1000 >> 0]);
+				// eslint-disable-line no-magic-numbers
+				this.state.items.push([Math.random() * 1000 >> 0]); // eslint-disable-line no-magic-numbers
 			}
 
 			this.update();
 		}
 	}, {
 		key: 'handleChangeColor',
-		value: function handleChangeColor(event) {
-			event.preventDefault();
-
+		value: function handleChangeColor() {
 			this.state.isColored = !this.state.isColored;
 
 			this.update();
 		}
 	}, {
 		key: 'handleToggleGrid',
-		value: function handleToggleGrid(event) {
-			event.preventDefault();
-
+		value: function handleToggleGrid() {
 			if (document.querySelector('body').className) {
 				document.querySelector('body').className = '';
 			} else {
 				document.querySelector('body').className = 'hasGrid';
+			}
+
+			this.update();
+		}
+	}, {
+		key: 'handleTextInputChange',
+		value: function handleTextInputChange(value) {
+			if (value === false) {
+				this.state.isTextInputValid = false;
+			} else {
+				this.state.isTextInputValid = true;
+			}
+
+			this.update();
+		}
+	}, {
+		key: 'handleEmailInputChange',
+		value: function handleEmailInputChange(value) {
+			if (value === false) {
+				this.state.isEmailInputValid = false;
+			} else {
+				this.state.isEmailInputValid = true;
+			}
+
+			this.update();
+		}
+	}, {
+		key: 'handleTextareaChange',
+		value: function handleTextareaChange(value) {
+			if (value === false) {
+				this.state.isTextareaValid = false;
+			} else {
+				this.state.isTextareaValid = true;
 			}
 
 			this.update();

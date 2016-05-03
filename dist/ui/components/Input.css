@@ -1,0 +1,87 @@
+.default {
+	box-sizing: border-box;
+	position: relative;
+	display: block;
+	z-index: 1;
+
+	width: 100%;
+	height: 2bh;
+	margin:0;
+
+	transition: color calc(var(--durations.fastest) * 1s) ease-in, background-color calc(var(--durations.fastest) * 1s) ease-in, border-color calc(var(--durations.fastest) * 1s) ease-in, box-shadow calc(var(--durations.fastest) * 1s) ease-in, transform calc(var(--durations.fastest) * 1s) ease-in, opacity calc(var(--durations.fastest) * 1s) ease-in, visibility calc(var(--durations.fastest) * 1s) ease-in;
+	will-change: color, background-color, border-color, box-shadow, transform, opacity, visibility;
+
+	padding: calc((var(--grid.baselineHeight) * 0.5 - var(--textInput.default.borderWidth)) * 1px) calc((var(--grid.baselineHeight) * 0.5 - var(--textInput.default.borderWidth)) * 1px);
+	
+	color: var(--textInput.default.color);
+	background-color: var(--textInput.default.backgroundColor);
+	background-image: none;
+	border-color: var(--textInput.default.borderColor);
+	border-width: calc(var(--textInput.default.borderWidth) * 1px);
+	border-radius: var(--textInput.default.borderRadius);
+	outline: 0 none;
+	box-shadow: var(--textInput.default.boxShadow);
+	
+	font-size: calc(var(--textInput.default.fontSize) * 1px);
+	
+	&::placeholder {
+		opacity: 1;
+		
+		color: var(--textInput.default.placeholder.color);
+	}
+
+	&:global(.isFocused), &:focus {
+		color: var(--textInput.default.focused.color);
+		background-color: var(--textInput.default.focused.backgroundColor);
+		background-image: none;
+		border-color: var(--textInput.default.focused.borderColor);
+		outline: 0 none;
+		box-shadow: var(--textInput.default.focused.boxShadow);
+		
+		&::placeholder {
+			color: var(--textInput.default.focused.placeholder.color);
+		}
+	}
+	
+	&:global(.isInvalid), &:invalid {
+		color: var(--textInput.default.invalid.color);
+		background-color: var(--textInput.default.invalid.backgroundColor);
+		background-image: none;
+		border-color: var(--textInput.default.invalid.borderColor);
+		outline: 0 none;
+		box-shadow: var(--textInput.default.invalid.boxShadow);
+		
+		&::placeholder {
+			color: var(--textInput.default.invalid.placeholder.color);
+		}
+	}
+
+	&:global(.isHovered), &:hover {
+		color: var(--textInput.default.hovered.color);
+		background-color: var(--textInput.default.hovered.backgroundColor);
+		background-image: none;
+		border-color: var(--textInput.default.hovered.borderColor);
+		outline: 0 none;
+		box-shadow: var(--textInput.default.hovered.boxShadow);
+		
+		&::placeholder {
+			color: var(--textInput.default.hovered.placeholder.color);
+		}
+	}
+
+	&:global(.isDisabled), &:disabled {
+		cursor: not-allowed;
+
+		color: var(--textInput.default.disabled.color);
+		background-color: var(--textInput.default.disabled.backgroundColor);
+		background-image: none;
+		border-color: var(--textInput.default.disabled.borderColor);
+		outline: 0 none;
+		box-shadow: var(--textInput.default.disabled.boxShadow);
+		
+		&::placeholder {
+			color: var(--textInput.default.disabled.placeholder.color);
+		}
+	}
+}
+

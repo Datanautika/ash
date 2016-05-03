@@ -12,6 +12,10 @@ var _I18n = require('ash/I18n');
 
 var _I18n2 = _interopRequireDefault(_I18n);
 
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 var _App = require('./components/App');
 
 var _App2 = _interopRequireDefault(_App);
@@ -26,7 +30,20 @@ var _constants2 = _interopRequireDefault(_constants);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+global.ash = _ash2.default;
+global.$ = _jquery2.default;
+
 const EN = _constants2.default.EN;
+const G_KEY_CODE = 71;
+
+// grid toggle
+(0, _jquery2.default)(global.document).on('keydown', event => {
+	let tagName = event.target.tagName.toLowerCase();
+
+	if (event.keyCode === G_KEY_CODE && event.target && tagName !== 'textarea' && tagName !== 'input') {
+		(0, _jquery2.default)('body').toggleClass('hasGrid');
+	}
+});
 
 // init i18n
 let i18n = new _I18n2.default();

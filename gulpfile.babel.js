@@ -1,3 +1,5 @@
+/* eslint-disable no-sync */
+
 import gulp from 'gulp';
 import del from 'del';
 import babel from 'gulp-babel';
@@ -11,8 +13,9 @@ import postcssVerticalRhythm from 'postcss-vertical-rhythm';
 import postcssNested from 'postcss-nested';
 import postcssPxToRem from 'postcss-pxtorem';
 import postcssCalc from 'postcss-calc';
+import postcssCustomMedia from 'postcss-custom-media';
 
-import {getConfig} from './src/core/config';
+import {getConfig} from './src/ui/config';
 import flattenTree from './src/core/utils/flattenTree';
 
 
@@ -31,6 +34,28 @@ const BUILD = 'build';
 
 let babelCompatConfig = JSON.parse(fs.readFileSync('.babelrc-compat', {encoding: 'utf8'}));
 let babelDistConfig = JSON.parse(fs.readFileSync('.babelrc-dist', {encoding: 'utf8'}));
+let variables = flattenTree(getConfig(), {valuesToString: true});
+let mediaQueries = {
+	'--tinyMenu-start-min': `(min-width: ${variables['breakpoints.tinyMenu.start']})`,
+	'--tinyMenu-start-max': `(max-width: ${variables['breakpoints.tinyMenu.start']})`,
+	'--tinyMenu-end-min': `(min-width: ${variables['breakpoints.tinyMenu.end']})`,
+	'--tinyMenu-end-max': `(max-width: ${variables['breakpoints.tinyMenu.end']})`,
+	'--compactMenu-start-min': `(min-width: ${variables['breakpoints.compactMenu.start']})`,
+	'--compactMenu-start-max': `(max-width: ${variables['breakpoints.compactMenu.start']})`,
+	'--compactMenu-end-min': `(min-width: ${variables['breakpoints.compactMenu.end']})`,
+	'--compactMenu-end-max': `(max-width: ${variables['breakpoints.compactMenu.end']})`,
+	'--compactPage-start-min': `(min-width: ${variables['breakpoints.compactPage.start']})`,
+	'--compactPage-start-max': `(max-width: ${variables['breakpoints.compactPage.start']})`,
+	'--compactPage-end-min': `(min-width: ${variables['breakpoints.compactPage.end']})`,
+	'--compactPage-end-max': `(max-width: ${variables['breakpoints.compactPage.end']})`,
+	'--singleColumnPage-start-min': `(min-width: ${variables['breakpoints.singleColumnPage.start']})`,
+	'--singleColumnPage-start-max': `(max-width: ${variables['breakpoints.singleColumnPage.start']})`,
+	'--singleColumnPage-middle-min': `(min-width: ${variables['breakpoints.singleColumnPage.middle']})`,
+	'--singleColumnPage-middle-max': `(max-width: ${variables['breakpoints.singleColumnPage.middle']})`,
+	'--singleColumnPage-end-min': `(min-width: ${variables['breakpoints.singleColumnPage.end']})`,
+	'--singleColumnPage-end-max': `(max-width: ${variables['breakpoints.singleColumnPage.end']})`
+};
+
 
 gulp.task(LIBRARY_CLEANUP, () => del(['./dist/**/*', './examples/node_modules/**/*']));
 
@@ -69,12 +94,16 @@ gulp.task(APP_WEBPACK, () => gulp.src('./examples/dist/compat/app.js')
 		postcss: [
 			postcssNested(),
 			postcssVariables({
-				variables: flattenTree(getConfig(), {valuesToString: true})
+				variables
+			}),
+			postcssCustomMedia({
+				extensions: mediaQueries
+			}),
+			postcssVerticalRhythm({
+				unit: 'bh',
+				baselineHeight: getConfig().grid.baselineHeight
 			}),
 			postcssCalc({precision: 8}),
-			postcssVerticalRhythm({
-				unit: 'bh'
-			}),
 			postcssPxToRem({
 				rootValue: 20,
 				unitPrecision: 8,
