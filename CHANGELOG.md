@@ -3,6 +3,11 @@ Ash changelog
 
 
 
+## v0.5.2
+
+- Fixed bugs
+
+
 ## v0.5.1
 
 - Fixed bugs
