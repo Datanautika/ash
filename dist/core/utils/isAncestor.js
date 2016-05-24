@@ -11,6 +11,9 @@ var _isFunction2 = _interopRequireDefault(_isFunction);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var functionPrototype = Object.getPrototypeOf(Function);
+var objectPrototype = Object.getPrototypeOf(Object);
+
 /**
  * Checks if `ancestor` class/constructor function is ancestor of `value`.
  *
@@ -23,12 +26,12 @@ function isAncestor(ancestor, value) {
 		return false;
 	}
 
-	if (ancestor === Object || ancestor === value) {
+	if (ancestor === objectPrototype || ancestor === value) {
 		return true;
 	}
 
-	var prototype = undefined,
-	    lastPrototype = undefined;
+	var prototype = undefined;
+	var lastPrototype = undefined;
 
 	while (prototype !== ancestor) {
 		lastPrototype = prototype;
@@ -40,7 +43,7 @@ function isAncestor(ancestor, value) {
 
 		if (prototype === ancestor) {
 			return true;
-		} else if (prototype === Function || prototype === Object) {
+		} else if (prototype === functionPrototype || prototype === objectPrototype) {
 			return false;
 		}
 	}

@@ -26,6 +26,7 @@ const APP_BABEL_COMPAT = 'app:babel-compat';
 const APP_BABEL_NEXT = 'app:babel-next';
 const APP_WEBPACK = 'app:webpack';
 const APP_CSS = 'app:css';
+const APP_ASSETS_FONTS = 'app:assets-fonts';
 const LIBRARY_CSS = 'library:css';
 const APP_LIBRARY = 'app:library';
 const WATCH = 'watch';
@@ -76,10 +77,10 @@ gulp.task(APP_BABEL_NEXT, () => gulp.src('./examples/src/**/*.js', {since: cache
 	.pipe(babel())
 	.pipe(gulp.dest('./examples/dist/next')));
 
-gulp.task(APP_WEBPACK, () => gulp.src('./examples/dist/compat/app.js')
+gulp.task(APP_WEBPACK, () => gulp.src('./examples/dist/compat/client.js')
 	.pipe(webpack({
 		output: {
-			filename: 'app.js'
+			filename: 'client.js'
 		},
 		module: {
 			loaders: [{
@@ -89,7 +90,7 @@ gulp.task(APP_WEBPACK, () => gulp.src('./examples/dist/compat/app.js')
 			}]
 		},
 		plugins: [
-			new ExtractText('app.css', {allChunks: true})
+			new ExtractText('client.css', {allChunks: true})
 		],
 		postcss: [
 			postcssNested(),
@@ -118,12 +119,15 @@ gulp.task(APP_WEBPACK, () => gulp.src('./examples/dist/compat/app.js')
 			})
 		],
 	}))
-	.pipe(gulp.dest('./examples/public/assets')));
+	.pipe(gulp.dest('./examples/public/build')));
 
 gulp.task(APP_CSS, () => gulp.src('./examples/src/**/*.css', {since: cache.lastMtime(APP_CSS)})
 	.pipe(cache(APP_CSS))
 	.pipe(gulp.dest('./examples/dist/compat'))
 	.pipe(gulp.dest('./examples/dist/next')));
+
+gulp.task(APP_ASSETS_FONTS, () => gulp.src('./examples/assets/fonts/**/*.woff')
+	.pipe(gulp.dest('./examples/public/assets')));
 
 gulp.task(LIBRARY_CSS, () => gulp.src('./src/**/*.css', {since: cache.lastMtime(LIBRARY_CSS)})
 	.pipe(cache(LIBRARY_CSS))
@@ -140,7 +144,7 @@ gulp.task(WATCH, () => {
 
 gulp.task(DEFAULT, gulp.series(
 	gulp.parallel(LIBRARY_CLEANUP, APP_CLEANUP),
-	gulp.parallel(LIBRARY_CSS, APP_CSS),
+	gulp.parallel(LIBRARY_CSS, APP_CSS, APP_ASSETS_FONTS),
 	LIBRARY_BABEL,
 	gulp.parallel(APP_BABEL_COMPAT,	APP_BABEL_NEXT),
 	APP_LIBRARY,
@@ -150,7 +154,7 @@ gulp.task(DEFAULT, gulp.series(
 
 gulp.task(BUILD, gulp.series(
 	gulp.parallel(LIBRARY_CLEANUP, APP_CLEANUP),
-	gulp.parallel(LIBRARY_CSS, APP_CSS),
+	gulp.parallel(LIBRARY_CSS, APP_CSS, APP_ASSETS_FONTS),
 	LIBRARY_BABEL,
 	gulp.parallel(APP_BABEL_COMPAT,	APP_BABEL_NEXT),
 	APP_LIBRARY,

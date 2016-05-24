@@ -1,6 +1,9 @@
 import isFunction from '../internals/isFunction';
 
 
+let functionPrototype = Object.getPrototypeOf(Function);
+let objectPrototype = Object.getPrototypeOf(Object);
+
 /**
  * Checks if `ancestor` class/constructor function is ancestor of `value`.
  *
@@ -13,11 +16,12 @@ export default function isAncestor(ancestor, value) {
 		return false;
 	}
 
-	if (ancestor === Object || ancestor === value) {
+	if (ancestor === objectPrototype || ancestor === value) {
 		return true;
 	}
 
-	let prototype, lastPrototype;
+	let prototype;
+	let lastPrototype;
 
 	while (prototype !== ancestor) {
 		lastPrototype = prototype;
@@ -29,7 +33,7 @@ export default function isAncestor(ancestor, value) {
 
 		if (prototype === ancestor) {
 			return true;
-		} else if (prototype === Function || prototype === Object) {
+		} else if (prototype === functionPrototype || prototype === objectPrototype) {
 			return false;
 		}
 	}

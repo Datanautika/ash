@@ -24,7 +24,7 @@ export default class AshNode {
 	constructor(tagName, properties) {
 		if (properties !== undefined) {
 			this.type = ELEMENT_ASH_NODE;
-			this.tagName = tagName.toLowerCase();
+			this.tagName = tagName;
 			this.properties = properties || {};
 			this.key = null;
 			this.children = [];
