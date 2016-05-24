@@ -20,12 +20,12 @@ export default function isAncestor(ancestor, value) {
 		return true;
 	}
 
-	let prototype;
+	let prototype = value;
 	let lastPrototype;
 
 	while (prototype !== ancestor) {
 		lastPrototype = prototype;
-		prototype = Object.getPrototypeOf(value);
+		prototype = Object.getPrototypeOf(lastPrototype);
 
 		if (lastPrototype === prototype) {
 			return false;

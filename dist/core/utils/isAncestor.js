@@ -30,12 +30,12 @@ function isAncestor(ancestor, value) {
 		return true;
 	}
 
-	var prototype = undefined;
+	var prototype = value;
 	var lastPrototype = undefined;
 
 	while (prototype !== ancestor) {
 		lastPrototype = prototype;
-		prototype = Object.getPrototypeOf(value);
+		prototype = Object.getPrototypeOf(lastPrototype);
 
 		if (lastPrototype === prototype) {
 			return false;
