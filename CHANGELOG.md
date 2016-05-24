@@ -2,6 +2,12 @@ Ash changelog
 =============
 
 
+
+## v0.5.1
+
+- Fixed bugs
+
+
 ## v0.5.0
 
 - Added UI Components: Input, Textarea, Button, ButtonGroup, Form, FormRow
