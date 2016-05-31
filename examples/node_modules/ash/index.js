@@ -49,7 +49,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /**
  * Ash object.
  *
- * @version 0.5.2
+ * @version 0.5.3
  */
 var ash = {
 	/**
@@ -57,7 +57,7 @@ var ash = {
   *
   * @type {string}
   */
-	VERSION: '0.5.2',
+	VERSION: '0.5.3',
 
 	/**
   * Support object.
