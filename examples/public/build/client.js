@@ -864,7 +864,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function sec(value) {
-		return value + ' s';
+		return value + 's';
 	}
 
 	var link = {

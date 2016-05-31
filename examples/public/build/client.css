@@ -1031,9 +1031,9 @@ h6 {
 a {
 	position: relative;
 
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 
 	color: #282623;
 	background-color: transparent;
@@ -1097,8 +1097,8 @@ a:before {
 }
 
 h1 a {
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 	color: #282623;
 	background-color: transparent;
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
@@ -1110,8 +1110,8 @@ h1 a {
 }
 
 h2 a {
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 	color: #282623;
 	background-color: transparent;
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
@@ -1123,8 +1123,8 @@ h2 a {
 }
 
 h3 a {
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 	color: #282623;
 	background-color: transparent;
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
@@ -1136,8 +1136,8 @@ h3 a {
 }
 
 h4 a {
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 	color: #282623;
 	background-color: transparent;
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
@@ -1149,8 +1149,8 @@ h4 a {
 }
 
 h5 a {
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 	color: #282623;
 	background-color: transparent;
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
@@ -1162,8 +1162,8 @@ h5 a {
 }
 
 h6 a {
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 	color: #282623;
 	background-color: transparent;
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
@@ -1175,8 +1175,8 @@ h6 a {
 }
 
 .shared__storyTitleHeading a {
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 	color: #282623;
 	background-color: transparent;
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
@@ -1188,8 +1188,8 @@ h6 a {
 }
 
 .shared__storyLevel1Heading a {
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 	color: #282623;
 	background-color: transparent;
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
@@ -1201,8 +1201,8 @@ h6 a {
 }
 
 .shared__storyLevel2Heading a {
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 	color: #282623;
 	background-color: transparent;
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
@@ -1214,8 +1214,8 @@ h6 a {
 }
 
 .shared__storyLevel3Heading a {
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 	color: #282623;
 	background-color: transparent;
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
@@ -1227,8 +1227,8 @@ h6 a {
 }
 
 .shared__storyLevel4Heading a {
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 	color: #282623;
 	background-color: transparent;
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
@@ -1240,8 +1240,8 @@ h6 a {
 }
 
 .shared__sectionTitleHeading a {
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 	color: #282623;
 	background-color: transparent;
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
@@ -1253,8 +1253,8 @@ h6 a {
 }
 
 .shared__sectionLevel1Heading a {
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 	color: #282623;
 	background-color: transparent;
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
@@ -1266,8 +1266,8 @@ h6 a {
 }
 
 .shared__sectionLevel2Heading a {
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 	color: #282623;
 	background-color: transparent;
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
@@ -1279,8 +1279,8 @@ h6 a {
 }
 
 .shared__sectionLevel3Heading a {
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 	color: #282623;
 	background-color: transparent;
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
@@ -1292,8 +1292,8 @@ h6 a {
 }
 
 .shared__sectionLevel4Heading a {
-	-webkit-transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
-	transition: color 0.1 s ease-in, background-color 0.1 s ease-in, border-color 0.1 s ease-in;
+	-webkit-transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
+	transition: color 0.1s ease-in, background-color 0.1s ease-in, border-color 0.1s ease-in;
 	color: #282623;
 	background-color: transparent;
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, transparent 50%);
