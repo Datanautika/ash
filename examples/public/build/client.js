@@ -166,7 +166,7 @@
 	/**
 	 * Ash object.
 	 *
-	 * @version 0.5.2
+	 * @version 0.5.3
 	 */
 	var ash = {
 		/**
@@ -174,7 +174,7 @@
 	  *
 	  * @type {string}
 	  */
-		VERSION: '0.5.2',
+		VERSION: '0.5.3',
 
 		/**
 	  * Support object.
@@ -864,7 +864,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function sec(value) {
-		return value + ' s';
+		return value + 's';
 	}
 
 	var link = {

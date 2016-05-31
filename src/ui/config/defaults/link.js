@@ -3,7 +3,7 @@ import colors from './colors';
 
 
 function sec(value) {
-	return `${value} s`;
+	return `${value}s`;
 }
 
 let link = {
