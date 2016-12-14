@@ -2,6 +2,12 @@ Ash changelog
 =============
 
 
+
+## v0.6.0
+
+- Fix onRender method being called unnecessarily
+
+
 ## v0.5.3
 
 - Fixed bugs

@@ -39,7 +39,11 @@ function walkMountComponents(ashElement) {
 			ashElement.instance.__lifecycle = LIFECYCLE_MOUNTED;
 		}
 
-		ashElement.instance.onRender();
+		if (ashElement.wasRendered) {
+			ashElement.wasRendered = false;
+
+			ashElement.instance.onRender();
+		}
 
 		if (ashElement.children[0]) {
 			walkMountComponents(ashElement.children[0]);

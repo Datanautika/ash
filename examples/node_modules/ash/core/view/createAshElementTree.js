@@ -55,6 +55,7 @@ function walkCreateAshElementTree(ashElement, owner, index) {
 		// create child by rendering component
 		ashElement.instance.__lifecycle = LIFECYCLE_MOUNTING;
 		ashElement.children[0] = ashElement.instance.render(ashElement.instance.props, ashElement.instance.state);
+		ashElement.warRendered = true;
 	} else if ((0, _isAshNodeAshElement2.default)(ashElement)) {
 		ashElement.instantiate();
 	} else if ((0, _isFunctionAshElement2.default)(ashElement)) {
@@ -103,6 +104,7 @@ function createAshElementTree(ashElement, stream) {
 		// create child by rendering component
 		ashElementTree.instance.__lifecycle = LIFECYCLE_MOUNTING;
 		ashElementTree.children[0] = ashElementTree.instance.render(ashElementTree.instance.props, ashElementTree.instance.state);
+		ashElementTree.wasRendered = true;
 	} else if ((0, _isAshNodeAshElement2.default)(ashElementTree)) {
 		ashElementTree.instantiate();
 	} else if ((0, _isFunctionAshElement2.default)(ashElementTree)) {
