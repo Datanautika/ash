@@ -3941,6 +3941,7 @@
 			// create child by rendering component
 			ashElement.instance.__lifecycle = LIFECYCLE_MOUNTING;
 			ashElement.children[0] = ashElement.instance.render(ashElement.instance.props, ashElement.instance.state);
+			ashElement.warRendered = true;
 		} else if ((0, _isAshNodeAshElement2.default)(ashElement)) {
 			ashElement.instantiate();
 		} else if ((0, _isFunctionAshElement2.default)(ashElement)) {
@@ -3989,6 +3990,7 @@
 			// create child by rendering component
 			ashElementTree.instance.__lifecycle = LIFECYCLE_MOUNTING;
 			ashElementTree.children[0] = ashElementTree.instance.render(ashElementTree.instance.props, ashElementTree.instance.state);
+			ashElementTree.wasRendered = true;
 		} else if ((0, _isAshNodeAshElement2.default)(ashElementTree)) {
 			ashElementTree.instantiate();
 		} else if ((0, _isFunctionAshElement2.default)(ashElementTree)) {
@@ -4109,6 +4111,8 @@
 				// create child for the new element
 				var render = oldAshElement.instance.render(oldAshElement.instance.props, oldAshElement.instance.state);
 
+				oldAshElement.wasRendered = true;
+
 				// adding children to the queue
 				if (render) {
 					render.owner = oldAshElement;
@@ -4220,6 +4224,7 @@
 
 		if (componentAshElement.instance.__isDirty) {
 			newAshElement = componentAshElement.instance.render(componentAshElement.instance.props, componentAshElement.instance.state);
+			newAshElement.wasRendered = true;
 			componentAshElement.isDirty = true;
 
 			if (newAshElement) {
@@ -4324,7 +4329,11 @@
 				ashElement.instance.__lifecycle = LIFECYCLE_MOUNTED;
 			}
 
-			ashElement.instance.onRender();
+			if (ashElement.wasRendered) {
+				ashElement.wasRendered = false;
+
+				ashElement.instance.onRender();
+			}
 
 			if (ashElement.children[0]) {
 				walkMountComponents(ashElement.children[0]);

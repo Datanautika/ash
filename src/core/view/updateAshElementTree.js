@@ -50,6 +50,8 @@ function walkUpdateAshElementTree(oldAshElement, newAshElement, stream, isParent
 			// create child for the new element
 			let render = oldAshElement.instance.render(oldAshElement.instance.props, oldAshElement.instance.state);
 
+			oldAshElement.wasRendered = true;
+
 			// adding children to the queue
 			if (render) {
 				render.owner = oldAshElement;
@@ -168,6 +170,7 @@ export default function updateAshElementTree(componentAshElement, stream) {
 
 	if (componentAshElement.instance.__isDirty) {
 		newAshElement = componentAshElement.instance.render(componentAshElement.instance.props, componentAshElement.instance.state);
+		newAshElement.wasRendered = true;
 		componentAshElement.isDirty = true;
 
 		if (newAshElement) {
